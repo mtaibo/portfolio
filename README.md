@@ -1,4 +1,4 @@
-# migueltaibo.com — Under Construction
+# Under Construction
 
 A minimal "Under Construction" landing page for [migueltaibo.com](https://migueltaibo.com), built with Vue 3, Vite, and Tailwind CSS. Hosted on Cloudflare Pages.
 
