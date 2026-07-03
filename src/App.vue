@@ -44,7 +44,7 @@
           </svg>
         </a>
         <a
-          href="mailto:miguel.taibo@icloud.com"
+          href="mailto:contact@migueltaibo.com"
           class="text-neutral-500 hover:text-white transition-colors duration-200"
           aria-label="Email"
         >
