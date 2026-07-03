@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-neutral-950 flex flex-col items-center justify-center px-6">
+  <div class="h-screen bg-neutral-950 flex flex-col items-center justify-center px-6">
     <div class="flex flex-col items-center gap-8 max-w-lg">
       <div class="animate-float">
         <svg
