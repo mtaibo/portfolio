@@ -6,7 +6,7 @@
           Miguel Taibo
         </h1>
         <p class="text-neutral-400 text-xl md:text-2xl">
-          Software Developer
+          Computer Science student, UDC
         </p>
         <p class="text-neutral-500 text-base md:text-lg max-w-md mx-auto">
           I build systems end to end.
