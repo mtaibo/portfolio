@@ -9,7 +9,7 @@
           Software Developer
         </p>
         <p class="text-neutral-500 text-base md:text-lg max-w-md mx-auto">
-          Building things that live on the internet.
+          I build systems end to end.
         </p>
       </div>
 
