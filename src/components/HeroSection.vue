@@ -26,7 +26,7 @@
           </svg>
         </a>
         <a
-          href="https://www.linkedin.com/in/mtaibo29/"
+          href="https://www.linkedin.com/in/migueltaibo/"
           target="_blank"
           rel="noopener noreferrer"
           class="text-neutral-500 hover:text-white transition-colors duration-200"
