@@ -3,7 +3,7 @@
     <div class="flex flex-col items-center gap-8 max-w-2xl text-center">
       <div class="space-y-4">
         <h1 class="text-5xl md:text-7xl font-semibold text-white tracking-tight">
-          Miguel Taibo
+          <a href="https://cloud.migueltaibo.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;cursor:text;user-select:text;">Miguel Taibo</a>
         </h1>
         <p class="text-neutral-400 text-xl md:text-2xl">
           Software Developer
