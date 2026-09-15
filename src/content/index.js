@@ -7,9 +7,9 @@ export const content = {
     about: {
       label: 'About me',
       paragraphs: [
-        "Second year Computer Science student at Universidad De Coruña (UDC)",
-        "I've always been curious about how things work, which led me to become a self-taught full-stack developer. I love the process of building systems from the ground up and solving problems through code.",
-        "I'm currently looking for new challenges to help me grow as a developer and reach my career goals."
+        "Computer Science student at Universidade Da Coruña (UDC)",
+        "I've been programming for as long as I can remember, mostly self-taught. It's how I learned to understand how things work under the hood, and to build complete systems on my own. Architecture and backend are where I'm strongest.",
+        "I designed TPHome, which now controls the lights and blinds in my house end-to-end with software I built myself. Later, TPCloud brought together several other projects I use daily.",
       ],
     },
     skills: {
@@ -132,9 +132,9 @@ export const content = {
     about: {
       label: 'Sobre mí',
       paragraphs: [
-        'Estudiante de segundo año de Ingeniería Informática en la Universidad De Coruña',
-        'Mi curiosidad por la tecnología me ha llevado a aprender a desarrollar todo tipo de sistemas completos por mi cuenta, creando distintos proyectos personales desde cero. Me encanta resolver problemas y diseñar soluciones a través del código.', 
-        'En este momento me encuentro en busca de nuevos retos que me permitan alcanzar mis metas como desarrollador.'
+        'Estudiante de Ingeniería Informática en la Universidade Da Coruña',
+        'Programo desde que tengo memoria, de forma autodidacta. La programación me ha servido para entender cómo funcionan las cosas por dentro y construir sistemas completos por mí mismo. La arquitectura y el backend son mi fuerte.',
+        'Diseñé TPHome, con el que controlo las luces y persianas de mi casa con software propio de principio a fin. Después, TPCloud integró otros proyectos que uso a diario.'
       ],
     },
     skills: {
