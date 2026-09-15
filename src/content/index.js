@@ -6,6 +6,7 @@ export const content = {
     },
     about: {
       label: 'About me',
+      storyLink: 'Full story',
       paragraphs: [
         "Computer Science student at Universidade Da Coruña (UDC)",
         "I've been programming for as long as I can remember, mostly self-taught. It's how I learned to understand how things work under the hood, and to build complete systems on my own. Architecture and backend are where I'm strongest.",
@@ -61,6 +62,53 @@ export const content = {
       subheading: "I'm always open to new opportunities, collaborations, or just a good conversation about tech.",
       email: 'contact@migueltaibo.com',
       copyright: '© 2026 Miguel Taibo',
+    },
+    story: {
+      backToHome: 'Back to home',
+      heading: 'My full story',
+      subheading: 'From LEGO sets to distributed systems.',
+      entries: [
+        {
+          era: 'Early childhood',
+          title: 'Builder by nature',
+          body: "Before I ever touched a computer, I was obsessed with building things. I spent my afternoons constructing LEGO sets piece by piece — whatever the size, I'd finish them in a single sitting. I told everyone I wanted to be an inventor.",
+        },
+        {
+          era: 'Primary school',
+          title: 'Scratch & robotics',
+          body: "At school I got my first taste of programming through Scratch, and started going to robotics classes — USB drive in hand — to program things on the school computers. I visited MUNCIT in A Coruña to see real robots. I loved it. At home I kept making little Scratch projects just for fun.",
+        },
+        {
+          era: 'Age 12',
+          title: 'Python & Mastermind',
+          body: "The summer I turned 12, I found Nate Gentile on YouTube and discovered his Mastermind Academy. I started his Python course and was immediately hooked — no AI, no shortcuts, just raw code. I spent hours programming every day.",
+        },
+        {
+          era: 'Age 12 — same summer',
+          title: 'Cybersecurity, Linux & the terminal',
+          body: "Right after Python, I took Savitar's cybersecurity course on Mastermind. It opened up a whole new world: Linux, networking, virtual machines, terminal customization. I was twelve years old and already spinning up VMs and reading man pages.",
+        },
+        {
+          era: 'Age 15–16',
+          title: 'Web development & the backend pull',
+          body: "In my third and fourth year of secondary school I picked up HTML, CSS, and JavaScript — mostly through Dalto's YouTube tutorials. I built simple calculators and small websites. Other creators like Hola Mundo and Midu Dev deepened my understanding of the web, and it became clear that what I actually loved was the backend: the logic, the architecture, the systems underneath.",
+        },
+        {
+          era: 'Bachillerato',
+          title: 'Head down, eyes on the goal',
+          body: "I stepped back from personal projects to focus on my university entrance exams. The goal was clear: Computer Science at UDC. This was also when AI started appearing everywhere — I began tinkering with it early, long before it became mainstream.",
+        },
+        {
+          era: 'Age 18 — University, year 1',
+          title: 'TPHome',
+          body: "I started my Computer Science degree at Universidade Da Coruña and, in parallel, began TPHome. I designed the firmware, the backend, and the frontend entirely from scratch. Today it controls the lights and blinds in my house — end-to-end, with software I wrote myself.",
+        },
+        {
+          era: 'Age 19',
+          title: 'TPCloud',
+          body: "This summer I started TPCloud, a platform that brings together several of the projects I use daily. It's the most ambitious thing I've built so far — and I'm not done yet.",
+        },
+      ],
     },
     projectDetail: {
       backToHome: 'Back to home',
@@ -131,6 +179,7 @@ export const content = {
     },
     about: {
       label: 'Sobre mí',
+      storyLink: 'Mi historia completa',
       paragraphs: [
         'Estudiante de Ingeniería Informática en la Universidade Da Coruña',
         'Programo desde que tengo memoria, de forma autodidacta. La programación me ha servido para entender cómo funcionan las cosas por dentro y construir sistemas completos por mí mismo. La arquitectura y el backend son mi fuerte.',
@@ -186,6 +235,53 @@ export const content = {
       subheading: 'Siempre estoy abierto a nuevas oportunidades, colaboraciones o simplemente una buena conversación sobre tecnología.',
       email: 'contact@migueltaibo.com',
       copyright: '© 2026 Miguel Taibo',
+    },
+    story: {
+      backToHome: 'Volver al inicio',
+      heading: 'Mi historia completa',
+      subheading: 'De juegos de LEGO a sistemas distribuidos.',
+      entries: [
+        {
+          era: 'Primera infancia',
+          title: 'Constructor de nacimiento',
+          body: 'Antes de tocar un ordenador, estaba obsesionado con construir cosas. Pasaba las tardes montando sets de LEGO pieza a pieza — fuera cual fuera el tamaño, los terminaba en una sola sentada. Le decía a todo el mundo que quería ser inventor.',
+        },
+        {
+          era: 'Primaria',
+          title: 'Scratch y robótica',
+          body: 'En el colegio tuve mi primer contacto con la programación a través de Scratch, y empecé a ir a clases de robótica — USB en mano — para programar en los ordenadores del cole. Visité el MUNCIT en A Coruña para ver robots de verdad. Me encantó. En casa seguía haciendo proyectillos en Scratch por pura diversión.',
+        },
+        {
+          era: '12 años',
+          title: 'Python y Mastermind',
+          body: 'El verano que cumplí 12 años encontré a Nate Gentile en YouTube y descubrí su academia Mastermind. Empecé su curso de Python y me enganchó de inmediato — sin IA, sin atajos, solo código. Pasaba horas programando cada día.',
+        },
+        {
+          era: '12 años — ese mismo verano',
+          title: 'Ciberseguridad, Linux y la terminal',
+          body: 'Justo después de Python, hice el curso de ciberseguridad de Savitar en Mastermind. Se abrió un mundo entero: Linux, redes, máquinas virtuales, personalización de la terminal. Tenía doce años y ya levantaba VMs y leía páginas de man.',
+        },
+        {
+          era: '15–16 años',
+          title: 'Desarrollo web y la llamada del backend',
+          body: 'En tercero y cuarto de la ESO empecé con HTML, CSS y JavaScript — sobre todo con tutoriales de Dalto en YouTube. Hice calculadoras sencillas y webs pequeñas. Otros como Hola Mundo y Midu Dev me profundizaron en el mundo web, y quedó claro que lo que realmente me gustaba era el backend: la lógica, la arquitectura, los sistemas por debajo.',
+        },
+        {
+          era: 'Bachillerato',
+          title: 'Cabeza agachada, vista en el objetivo',
+          body: 'Dejé de lado los proyectos personales para centrarme en la selectividad. El objetivo era claro: Ingeniería Informática en la UDC. También fue la época en la que la IA empezó a aparecer por todos lados — empecé a trastear con ella pronto, mucho antes de que se pusiera de moda.',
+        },
+        {
+          era: '18 años — 1.º de carrera',
+          title: 'TPHome',
+          body: 'Empecé Ingeniería Informática en la Universidade Da Coruña y, en paralelo, comencé TPHome. Diseñé el firmware, el backend y el frontend completamente desde cero. Hoy controla las luces y las persianas de mi casa — de principio a fin, con software que escribí yo mismo.',
+        },
+        {
+          era: '19 años',
+          title: 'TPCloud',
+          body: 'Este verano empecé TPCloud, una plataforma que integra varios de los proyectos que uso a diario. Es lo más ambicioso que he construido hasta ahora — y todavía no he terminado.',
+        },
+      ],
     },
     projectDetail: {
       backToHome: 'Volver al inicio',

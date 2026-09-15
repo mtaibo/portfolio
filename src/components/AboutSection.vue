@@ -15,6 +15,13 @@
           {{ t.about.paragraphs[2] }}
         </p>
       </div>
+      <router-link
+        to="/story"
+        class="inline-flex items-center gap-2 mt-10 text-neutral-400 hover:text-white transition-colors duration-200 group"
+      >
+        {{ t.about.storyLink }}
+        <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+      </router-link>
     </div>
   </section>
 </template>
