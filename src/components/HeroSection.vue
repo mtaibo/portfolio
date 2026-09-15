@@ -3,13 +3,10 @@
     <div class="flex flex-col items-center gap-8 max-w-2xl text-center">
       <div class="space-y-4">
         <h1 class="text-5xl md:text-7xl font-semibold text-white tracking-tight">
-          <a href="https://cloud.migueltaibo.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;cursor:text;user-select:text;">Miguel Taibo</a>
+          <a href="https://cloud.migueltaibo.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;cursor:text;user-select:text;">{{ t.hero.name }}</a>
         </h1>
         <p class="text-neutral-400 text-xl md:text-2xl">
-          Software Developer
-        </p>
-        <p class="text-neutral-500 text-base md:text-lg max-w-md mx-auto">
-          I build systems end to end.
+          {{ t.hero.role }}
         </p>
       </div>
 
@@ -41,12 +38,11 @@
           class="text-neutral-500 hover:text-white transition-colors duration-200"
           aria-label="Email"
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2"/>
-            <path d="M22 4L12 13L2 4"/>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/>
+            <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/>
           </svg>
         </a>
-
       </div>
     </div>
 
@@ -57,3 +53,8 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import { useLanguage } from '../composables/useLanguage.js'
+const { t } = useLanguage()
+</script>

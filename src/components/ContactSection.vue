@@ -2,20 +2,20 @@
   <section class="min-h-screen flex items-center justify-center px-6 py-24">
     <div class="max-w-2xl w-full text-center fade-in-section">
       <h2 class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-6">
-        Contact
+        {{ t.contact.label }}
       </h2>
       <p class="text-2xl md:text-3xl text-neutral-200 mb-4">
-        Let's talk.
+        {{ t.contact.heading }}
       </p>
       <p class="text-neutral-400 mb-10">
-        I'm always open to new opportunities, collaborations, or just a good conversation about tech.
+        {{ t.contact.subheading }}
       </p>
 
       <a
         href="mailto:contact@migueltaibo.com"
         class="inline-block border border-neutral-700 text-white px-8 py-3 rounded-lg hover:border-neutral-500 transition-colors duration-300 mb-12"
       >
-        contact@migueltaibo.com
+        {{ t.contact.email }}
       </a>
 
       <div class="flex items-center justify-center gap-6">
@@ -46,16 +46,21 @@
           class="text-neutral-500 hover:text-white transition-colors duration-200"
           aria-label="Email"
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2"/>
-            <path d="M22 4L12 13L2 4"/>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/>
+            <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/>
           </svg>
         </a>
       </div>
 
       <p class="text-neutral-700 text-sm mt-16">
-        &copy; 2026 Miguel Taibo
+        {{ t.contact.copyright }}
       </p>
     </div>
   </section>
 </template>
+
+<script setup>
+import { useLanguage } from '../composables/useLanguage.js'
+const { t } = useLanguage()
+</script>
