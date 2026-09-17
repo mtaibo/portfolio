@@ -3,7 +3,7 @@
     <div class="max-w-2xl mx-auto">
       <a
         href="/"
-        @click.prevent="goBack"
+        @click="handleBack"
         class="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors mb-12"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -49,7 +49,9 @@ import { useLanguage } from '../composables/useLanguage.js'
 const router = useRouter()
 const { t } = useLanguage()
 
-const goBack = () => {
+const handleBack = (e) => {
+  if (e.button !== 0 || e.metaKey || e.ctrlKey) return
+  e.preventDefault()
   router.push('/')
 }
 </script>
