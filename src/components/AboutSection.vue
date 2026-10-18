@@ -1,27 +1,13 @@
 <template>
-  <section class="min-h-screen flex items-center justify-center px-6 py-24">
-    <div class="max-w-2xl fade-in-section">
-      <h2 class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-6">
-        {{ t.about.label }}
-      </h2>
-      <div class="space-y-6">
-        <p class="text-xl md:text-2xl text-neutral-200 leading-relaxed">
-          {{ t.about.paragraphs[0] }}
-        </p>
-        <p class="text-lg text-neutral-400 leading-relaxed">
-          {{ t.about.paragraphs[1] }}
-        </p>
-        <p class="text-lg text-neutral-400 leading-relaxed">
-          {{ t.about.paragraphs[2] }}
-        </p>
+  <section class="px-6 md:px-12 py-24 md:py-36 max-w-[1320px] mx-auto border-t border-hair">
+    <div class="grid md:grid-cols-12 gap-10 md:gap-14">
+      <p class="display md:col-span-7 text-bone text-3xl md:text-5xl leading-[1.12] max-w-[22ch]">
+        {{ t.about.heading }}
+      </p>
+      <div class="md:col-span-5 md:pt-3">
+        <p class="text-ash text-lg leading-relaxed max-w-[44ch]">{{ t.about.body }}</p>
+        <router-link to="/story" class="link inline-block mt-8 text-bone text-sm">{{ t.about.storyLink }}</router-link>
       </div>
-      <router-link
-        to="/story"
-        class="inline-flex items-center gap-2 mt-10 text-neutral-400 hover:text-white transition-colors duration-200 group"
-      >
-        {{ t.about.storyLink }}
-        <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
-      </router-link>
     </div>
   </section>
 </template>

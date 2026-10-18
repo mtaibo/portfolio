@@ -1,100 +1,82 @@
 <template>
-  <div class="min-h-screen bg-black text-white px-6 py-12">
-    <div class="max-w-4xl mx-auto">
-      <a
-        href="/"
-        @click="handleBack"
-        class="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors mb-12"
-      >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 12H5"/>
-          <path d="M12 19l-7-7 7-7"/>
-        </svg>
-        {{ t.projectDetail.backToHome }}
-      </a>
+  <main class="px-6 md:px-12 pt-8 pb-10 max-w-[1320px] mx-auto">
+    <a href="/" @click="handleBack" class="link inline-block text-sm text-ash hover:text-bone">{{ t.projectDetail.backToHome }}</a>
 
-      <div class="fade-in-section visible">
-        <h1 class="text-4xl md:text-5xl font-medium text-white mb-6">
-          {{ project.name }}
-        </h1>
-
-        <p class="text-xl text-neutral-300 leading-relaxed mb-8">
-          {{ project.description }}
-        </p>
-
-        <div class="flex flex-wrap gap-2 mb-12">
-          <span
-            v-for="tech in project.tech"
-            :key="tech"
-            class="text-sm text-neutral-400 border border-neutral-700 rounded-full px-4 py-2"
-          >
-            {{ tech }}
-          </span>
-        </div>
-
-        <div class="prose prose-invert max-w-none">
-          <div class="space-y-8">
-            <div v-if="project.overview" class="border border-neutral-800 rounded-lg p-6">
-              <h2 class="text-2xl font-medium text-white mb-4">{{ t.projectDetail.overview }}</h2>
-              <p class="text-neutral-300 leading-relaxed">{{ project.overview }}</p>
-            </div>
-
-            <div v-if="project.features" class="border border-neutral-800 rounded-lg p-6">
-              <h2 class="text-2xl font-medium text-white mb-4">{{ t.projectDetail.features }}</h2>
-              <ul class="space-y-3">
-                <li
-                  v-for="feature in project.features"
-                  :key="feature"
-                  class="flex items-start gap-3 text-neutral-300"
-                >
-                  <span class="text-neutral-500 mt-1">•</span>
-                  <span>{{ feature }}</span>
-                </li>
-              </ul>
-            </div>
-
-            <div v-if="project.architecture" class="border border-neutral-800 rounded-lg p-6">
-              <h2 class="text-2xl font-medium text-white mb-4">{{ t.projectDetail.architecture }}</h2>
-              <p class="text-neutral-300 leading-relaxed">{{ project.architecture }}</p>
-            </div>
-
-            <div v-if="project.challenges" class="border border-neutral-800 rounded-lg p-6">
-              <h2 class="text-2xl font-medium text-white mb-4">{{ t.projectDetail.challenges }}</h2>
-              <p class="text-neutral-300 leading-relaxed">{{ project.challenges }}</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-12 flex gap-4">
-          <a
-            v-if="project.github"
-            :href="project.github"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 border border-neutral-700 rounded-lg px-6 py-3 text-neutral-300 hover:text-white hover:border-neutral-500 transition-all"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-            {{ t.projectDetail.viewOnGitHub }}
-          </a>
-        </div>
+    <header class="intro mt-16 md:mt-24 grid md:grid-cols-12 gap-8 md:gap-14 items-end">
+      <h1 class="display md:col-span-7 text-bone text-[clamp(3rem,9vw,8rem)] leading-[0.95]">{{ project.name }}</h1>
+      <div class="md:col-span-5 md:pb-3">
+        <p class="text-ash text-lg leading-relaxed max-w-[44ch]">{{ project.description }}</p>
+        <ul class="flex flex-wrap gap-x-5 gap-y-2 mt-6 text-sm text-bone/70">
+          <li v-for="fact in summary.facts" :key="fact" class="flex items-center gap-2">
+            <span class="w-1 h-1 rounded-full bg-signal/70"></span>{{ fact }}
+          </li>
+        </ul>
       </div>
+    </header>
+
+    <ProjectVisual :id="projectId" :class="['mt-14 md:mt-20 md:aspect-[16/9]', ['tpcloud', 'hackudc26'].includes(projectId) ? 'aspect-[4/5] sm:aspect-[4/3]' : 'aspect-[4/3]']" />
+
+    <div class="mt-24 md:mt-36 space-y-20 md:space-y-28">
+      <section v-if="project.overview" class="row">
+        <h2 class="heading">{{ t.projectDetail.overview }}</h2>
+        <p class="body text-bone/85 text-xl md:text-2xl leading-relaxed">{{ project.overview }}</p>
+      </section>
+
+      <section v-if="project.modules" class="row">
+        <h2 class="heading">{{ t.projectDetail.modules }}</h2>
+        <ul class="body divide-y divide-hair border-y border-hair">
+          <li v-for="module in project.modules" :key="module.name" class="py-7 grid md:grid-cols-[1fr_auto] gap-3 md:gap-10">
+            <div>
+              <h3 class="display text-bone text-2xl md:text-3xl">{{ module.name }}</h3>
+              <p class="text-ash leading-relaxed mt-2 max-w-[56ch]">{{ module.description }}</p>
+            </div>
+            <a v-if="module.github" :href="module.github" target="_blank" rel="noopener noreferrer" class="link self-start md:mt-2 text-sm text-ash hover:text-bone">GitHub</a>
+          </li>
+        </ul>
+      </section>
+
+      <section v-if="project.features" class="row">
+        <h2 class="heading">{{ t.projectDetail.features }}</h2>
+        <ul class="body grid sm:grid-cols-2 gap-x-10 gap-y-5">
+          <li v-for="feature in project.features" :key="feature" class="flex gap-3 text-ash leading-relaxed">
+            <span class="mt-[0.7em] w-1 h-1 shrink-0 rounded-full bg-signal/70"></span>{{ feature }}
+          </li>
+        </ul>
+      </section>
+
+      <section v-if="project.architecture" class="row">
+        <h2 class="heading">{{ t.projectDetail.architecture }}</h2>
+        <p class="body text-ash text-lg leading-relaxed max-w-[62ch]">{{ project.architecture }}</p>
+      </section>
+
+      <section v-if="project.challenges" class="row">
+        <h2 class="heading">{{ t.projectDetail.challenges }}</h2>
+        <p class="body text-ash text-lg leading-relaxed max-w-[62ch]">{{ project.challenges }}</p>
+      </section>
     </div>
-  </div>
+
+    <footer class="mt-28 md:mt-40 pt-10 border-t border-hair flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+      <a v-if="project.github" :href="project.github" target="_blank" rel="noopener noreferrer" class="link self-start text-sm text-bone">
+        {{ t.projectDetail.viewOnGitHub }}
+      </a>
+      <router-link :to="next.route" class="group md:text-right">
+        <span class="block text-sm text-ash">{{ t.projectDetail.next }}</span>
+        <span class="display block mt-2 text-bone text-4xl md:text-6xl transition-colors duration-300 group-hover:text-signal">{{ next.name }}</span>
+      </router-link>
+    </footer>
+  </main>
 </template>
 
 <script setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useLanguage } from '../composables/useLanguage.js'
+import ProjectVisual from '../components/ProjectVisual.vue'
 
 const router = useRouter()
 const { t } = useLanguage()
 
-const props = defineProps({
-  projectId: String
-})
+const props = defineProps({ projectId: String })
 
 const handleBack = (e) => {
   if (e.button !== 0 || e.metaKey || e.ctrlKey) return
@@ -103,4 +85,38 @@ const handleBack = (e) => {
 }
 
 const project = computed(() => t.value.projectDetail.projects[props.projectId])
+const items = computed(() => t.value.projects.items)
+const summary = computed(() => items.value.find((p) => p.id === props.projectId))
+const next = computed(() => {
+  const i = items.value.findIndex((p) => p.id === props.projectId)
+  return items.value[(i + 1) % items.value.length]
+})
 </script>
+
+<style scoped>
+.row {
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .row {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 3.5rem;
+  }
+  .heading { grid-column: span 4; }
+  .body { grid-column: span 8; }
+}
+.heading {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: var(--color-bone);
+}
+.intro {
+  animation: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+</style>

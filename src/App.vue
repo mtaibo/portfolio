@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black text-white">
+  <div class="bg-ink text-bone min-h-screen">
     <LanguageToggle />
     <router-view />
   </div>

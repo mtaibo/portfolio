@@ -15,6 +15,12 @@ const routes = [
     component: StoryView
   },
   {
+    path: '/tpcloud',
+    name: 'tpcloud',
+    component: ProjectDetail,
+    props: { projectId: 'tpcloud' }
+  },
+  {
     path: '/tphome',
     name: 'tphome',
     component: ProjectDetail,

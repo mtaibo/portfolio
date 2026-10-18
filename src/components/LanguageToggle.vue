@@ -1,16 +1,13 @@
 <template>
-  <div class="fixed top-6 right-6 z-50 flex items-center gap-2 text-sm font-medium select-none">
+  <div class="fixed top-6 right-6 md:top-8 md:right-12 z-50 flex items-center gap-3 text-[13px] select-none">
     <button
-      @click="setLang('en')"
-      :class="lang === 'en' ? 'text-white' : 'text-neutral-600 hover:text-neutral-400'"
-      class="transition-colors duration-200"
-    >EN</button>
-    <span class="text-neutral-700">·</span>
-    <button
-      @click="setLang('es')"
-      :class="lang === 'es' ? 'text-white' : 'text-neutral-600 hover:text-neutral-400'"
-      class="transition-colors duration-200"
-    >ES</button>
+      v-for="code in ['en', 'es']"
+      :key="code"
+      @click="setLang(code)"
+      :aria-pressed="lang === code"
+      :class="lang === code ? 'text-bone' : 'text-smoke hover:text-ash'"
+      class="transition-colors duration-300 uppercase tracking-wide"
+    >{{ code }}</button>
   </div>
 </template>
 
