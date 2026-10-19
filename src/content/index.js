@@ -5,7 +5,6 @@ export const content = {
       role: 'Software Engineer',
       statement: 'I build my own infrastructure, from the firmware on a wall switch to the app on my phone.',
       stack: ['Switch firmware', 'Home server', 'Personal cloud', 'Native app'],
-      work: 'Selected work',
     },
     about: {
       label: 'About me',
@@ -222,7 +221,6 @@ export const content = {
       role: 'Ingeniero de Software',
       statement: 'Construyo mi propia infraestructura, desde el firmware de un interruptor hasta la app de mi móvil.',
       stack: ['Firmware del interruptor', 'Servidor en casa', 'Nube personal', 'App nativa'],
-      work: 'Proyectos',
     },
     about: {
       label: 'Sobre mí',

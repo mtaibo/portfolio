@@ -1,8 +1,11 @@
 <template>
-  <section id="projects" class="px-6 md:px-12 py-24 md:py-36 max-w-[1320px] mx-auto">
-    <h2 class="display text-3xl md:text-4xl text-bone mb-16 md:mb-24">{{ t.hero.work }}</h2>
+  <section class="px-6 md:px-12 max-w-[1320px] mx-auto">
+    <!-- A full screen of black with only the title, so the work clearly starts here -->
+    <div class="min-h-[100svh] flex items-center">
+      <h2 class="display text-bone text-[clamp(3.25rem,10vw,8.5rem)] leading-none">{{ t.projects.label }}</h2>
+    </div>
 
-    <div class="space-y-28 md:space-y-44">
+    <div id="projects" class="space-y-28 md:space-y-44 pt-10 md:pt-16 pb-24 md:pb-36">
       <article
         v-for="(project, i) in t.projects.items"
         :key="project.id"
