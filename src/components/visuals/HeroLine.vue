@@ -2,7 +2,7 @@
   <div class="hero-line">
     <!-- Mobile: the same four steps stacked vertically, each with its label beside it -->
     <svg viewBox="0 0 320 470" class="md:hidden w-full max-w-[340px] h-auto overflow-visible" role="img" :aria-label="labels.join(', ')">
-      <path class="wire stroke-smoke" pathLength="1" fill="none" stroke-width="1.25" d="M60 92 V140 M60 228 V280 M60 340 V368" />
+      <path class="wire stroke-smoke" pathLength="1" fill="none" stroke-width="1.25" d="M60 87 V150 M60 218 V271 M60 341 V380" />
       <g class="stroke-bone/70" fill="none" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
         <g v-for="(step, i) in vertical" :key="i" class="vnode" :style="{ '--d': `${0.2 + i * 0.6}s` }" :transform="step.transform" v-html="icons[i]" />
       </g>
@@ -16,7 +16,7 @@
         <g class="node" style="--d: 0.2s">
           <rect x="60" y="60" width="60" height="60" rx="4" pathLength="1" />
           <rect x="76" y="76" width="28" height="28" rx="2" pathLength="1" class="stroke-ash" />
-          <path pathLength="1" d="M72 60v-10M84 60v-10M96 60v-10M108 60v-10M72 120v10M84 120v10M96 120v10M108 120v10M60 72h-10M60 84h-10M60 96h-10M60 108h-10" />
+          <path pathLength="1" d="M72 60v-10M84 60v-10M96 60v-10M108 60v-10M72 120v10M84 120v10M96 120v10M108 120v10M60 72h-10M60 84h-10M60 96h-10M60 108h-10M120 72h10M120 84h10M120 96h10M120 108h10" />
         </g>
 
         <!-- Raspberry Pi -->
@@ -46,7 +46,7 @@
         <path
           class="wire stroke-smoke"
           pathLength="1"
-          d="M130 90 H390 M550 90 H726 M856 90 H1084"
+          d="M142 90 H388 M562 90 H708 M867 90 H1082"
         />
       </g>
 
@@ -71,7 +71,7 @@
 defineProps({ labels: { type: Array, required: true } })
 // Icon markup shared by the vertical (mobile) version, drawn in the same coordinates as the wide one.
 const icons = [
-  '<rect x="60" y="60" width="60" height="60" rx="4" pathLength="1"/><rect x="76" y="76" width="28" height="28" rx="2" pathLength="1" class="stroke-ash"/><path pathLength="1" d="M72 60v-10M84 60v-10M96 60v-10M108 60v-10M72 120v10M84 120v10M96 120v10M108 120v10M60 72h-10M60 84h-10M60 96h-10M60 108h-10"/>',
+  '<rect x="60" y="60" width="60" height="60" rx="4" pathLength="1"/><rect x="76" y="76" width="28" height="28" rx="2" pathLength="1" class="stroke-ash"/><path pathLength="1" d="M72 60v-10M84 60v-10M96 60v-10M108 60v-10M72 120v10M84 120v10M96 120v10M108 120v10M60 72h-10M60 84h-10M60 96h-10M60 108h-10M120 72h10M120 84h10M120 96h10M120 108h10"/>',
   '<rect x="400" y="52" width="140" height="76" rx="6" pathLength="1"/><rect x="452" y="74" width="30" height="30" rx="2" pathLength="1" class="stroke-ash"/><path pathLength="1" d="M540 70h10v14h-10M540 96h10v14h-10"/><circle cx="414" cy="116" r="3" pathLength="1"/><circle cx="526" cy="116" r="3" pathLength="1"/>',
   '<path pathLength="1" d="M742 124h86a26 26 0 0 0 2-52 38 38 0 0 0-72-6 30 30 0 0 0-16 58z"/><path pathLength="1" class="stroke-ash" d="M772 104h40M772 92h28"/>',
   '<rect x="1094" y="42" width="54" height="98" rx="11" pathLength="1"/><path pathLength="1" d="M1113 50h16"/><path pathLength="1" class="stroke-ash" d="M1104 64h10v10h-10zM1116 64h10v10h-10zM1128 64h10v10h-10zM1104 76h10v10h-10zM1116 76h10v10h-10zM1128 76h10v10h-10zM1104 88h10v10h-10zM1116 88h10v10h-10zM1128 88h10v10h-10z"/>',
@@ -110,10 +110,10 @@ const positions = ['7.5%', '39.2%', '65.4%', '93.4%']
 }
 
 .packet {
-  offset-path: path('M130 90 H1084');
+  offset-path: path('M142 90 H1082');
   offset-rotate: 0deg;
   opacity: 0;
-  animation: travel 5.5s cubic-bezier(0.45, 0, 0.55, 1) 3.4s infinite;
+  animation: travel 5.5s linear 3.4s infinite;
 }
 
 .vnode {
@@ -122,10 +122,10 @@ const positions = ['7.5%', '39.2%', '65.4%', '93.4%']
   animation-delay: var(--d);
 }
 .packet-v {
-  offset-path: path('M60 92 V368');
+  offset-path: path('M60 87 V380');
   offset-rotate: 0deg;
   opacity: 0;
-  animation: travel 5.5s cubic-bezier(0.45, 0, 0.55, 1) 3s infinite;
+  animation: travel-v 5.5s linear 3s infinite;
 }
 text.label {
   font-family: var(--font-sans);
@@ -144,11 +144,35 @@ text.label {
 @keyframes appear {
   to { opacity: 1; }
 }
+/* The packet only shows on the wires: it fades out at the end of each one, crosses the
+   drawing hidden and comes back out on the far side. Distances match the wire gaps. */
 @keyframes travel {
-  0% { offset-distance: 0%; opacity: 0; }
-  8% { opacity: 1; }
-  70% { offset-distance: 100%; opacity: 1; }
-  78%, 100% { offset-distance: 100%; opacity: 0; }
+  0%        { offset-distance: 0%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  1.5%      { opacity: 1; }
+  22%       { opacity: 1; }
+  23.5%     { offset-distance: 26.17%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  29.5%     { offset-distance: 44.68%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  31%       { opacity: 1; }
+  41.95%    { opacity: 1; }
+  43.45%    { offset-distance: 60.21%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  49.45%    { offset-distance: 77.13%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  50.95%    { opacity: 1; }
+  68.5%     { opacity: 1; }
+  70%, 100% { offset-distance: 100%; opacity: 0; }
+}
+@keyframes travel-v {
+  0%        { offset-distance: 0%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  1.5%      { opacity: 1; }
+  22.1%     { opacity: 1; }
+  23.6%     { offset-distance: 21.5%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  29.6%     { offset-distance: 44.71%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  31.1%     { opacity: 1; }
+  47.9%     { opacity: 1; }
+  49.4%     { offset-distance: 62.8%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  55.4%     { offset-distance: 86.69%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  56.9%     { opacity: 1; }
+  68.5%     { opacity: 1; }
+  70%, 100% { offset-distance: 100%; opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
