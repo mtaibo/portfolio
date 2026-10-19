@@ -1,6 +1,10 @@
 <template>
-  <div ref="el" class="visual stage" :class="[{ 'is-live': inView }, padded ? 'p-4 md:p-10' : '']">
-    <component :is="visual" :live="inView" />
+  <div ref="el" class="visual stage" :class="{ 'is-live': inView }">
+    <!-- Absolutely filled so every engine gives the visual a definite size; Safari otherwise sizes
+         a 100%-height child of an aspect-ratio box against the padding too and clips it. -->
+    <div class="absolute inset-0" :class="padded ? 'p-4 md:p-10' : ''">
+      <component :is="visual" :live="inView" />
+    </div>
   </div>
 </template>
 
