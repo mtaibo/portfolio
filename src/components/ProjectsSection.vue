@@ -43,9 +43,10 @@ const { t } = useLanguage()
 const layout = (i) => {
   if (i === 0) {
     return {
-      article: 'grid gap-10 md:gap-14',
-      visual: 'block order-2',
-      aspect: 'aspect-[4/5] sm:aspect-[5/3]',
+      // On desktop the lead project fits in one screen: the diagram takes whatever height is left.
+      article: 'grid gap-10 md:gap-14 md:flex md:flex-col md:h-[min(calc(100svh-6rem),60rem)]',
+      visual: 'block order-2 md:flex md:flex-col md:flex-1 md:min-h-[22rem]',
+      aspect: 'aspect-[4/5] sm:aspect-[5/3] md:aspect-auto md:flex-1',
       text: 'order-1 md:grid md:grid-cols-2 md:items-start md:gap-14',
     }
   }
