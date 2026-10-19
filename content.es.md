@@ -1,6 +1,6 @@
-# Textos de la web — Español
+# Textos de la web - Español
 
-Todos los textos que se ven en migueltaibo.com en español. Edítalos aquí y pídele a Claude que los aplique.
+Todos los textos que se ven en migueltaibo.com en español.
 
 La web **no** lee este archivo: los textos reales están en `src/content/index.js`. Cada encabezado muestra la clave (`asi.esta`) a la que corresponde allí, para poder copiar cada cambio a su sitio.
 

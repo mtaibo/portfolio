@@ -1,6 +1,6 @@
-# Website text — English
+# Website text - English
 
-Every text shown on migueltaibo.com in English. Edit it here and ask Claude to apply it.
+Every text shown on migueltaibo.com in English.
 
 The website does **not** read this file: the real texts live in `src/content/index.js`. Each heading shows the key (`like.this`) the text maps to there, so a change here can be copied to the right place.
 
