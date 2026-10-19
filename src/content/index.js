@@ -9,7 +9,7 @@ export const content = {
     about: {
       label: 'About me',
       storyLink: 'Read my story',
-      heading: 'Self-taught since I was twelve. Studying Computer Engineering at UDC.',
+      heading: 'Self-taught since I was twelve. Studying Software Engineering at UDC.',
       body: "I've always wanted to understand how things work underneath. Backend and architecture are where I'm strongest, and I like owning every layer of what I build.",
       paragraphs: [
         "Computer Science student at Universidade Da Coruña (UDC)",
@@ -183,7 +183,7 @@ export const content = {
           description: 'Visual fashion search built with my team in one weekend. Upload a photo of an outfit and get the most similar products in the catalogue, using a fine-tuned CLIP model and FAISS.',
           tech: ['Python', 'PyTorch', 'CLIP', 'FAISS', 'FastAPI'],
           github: 'https://github.com/mtaibo/hackUDC26_reto_inditex',
-          overview: 'Inditex gave us thousands of editorial photos of models wearing full looks and a catalogue of products, and asked us to find which products appear in each photo from the image alone. We built it at HackUDC 2026 as a team of first-year Computer Engineering and Data Engineering students: upload a photo by file or URL and get the closest products, ranked by visual similarity.',
+          overview: 'Inditex gave us thousands of editorial photos of models wearing full looks and a catalogue of products, and asked us to find which products appear in each photo from the image alone. We built it at HackUDC 2026 as a team of first-year Software Engineering and Data Engineering students: upload a photo by file or URL and get the closest products, ranked by visual similarity.',
           features: [
             'OpenCLIP ViT-B/32 fine-tuned on bundle–product pairs with a contrastive loss',
             'FAISS index over the catalogue for millisecond searches',
