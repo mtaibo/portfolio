@@ -8,8 +8,8 @@
   --color-hair: #1e1d1b;
   --color-signal: #bfd0db;
 
-  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
-  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", -apple-system, "SF Pro Display", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", -apple-system, "SF Pro Text", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
@@ -53,8 +53,8 @@ button:focus-visible {
 .display {
   font-family: var(--font-display);
   font-optical-sizing: auto;
-  font-weight: 300;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  letter-spacing: -0.03em;
 }
 
 /* Visuals only animate while they're on screen (see useInView). */
