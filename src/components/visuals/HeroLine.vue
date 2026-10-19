@@ -1,8 +1,8 @@
 <template>
   <div class="hero-line">
     <!-- Mobile: the same four steps stacked vertically, each with its label beside it -->
-    <svg viewBox="0 0 320 470" class="md:hidden w-full max-w-[340px] h-auto overflow-visible" role="img" :aria-label="labels.join(', ')">
-      <path class="wire stroke-smoke" pathLength="1" fill="none" stroke-width="1.25" d="M60 87 V150 M60 218 V271 M60 341 V380" />
+    <svg viewBox="0 0 320 362" preserveAspectRatio="xMinYMid meet" class="md:hidden w-full max-w-[340px] h-full overflow-visible" role="img" :aria-label="labels.join(', ')">
+      <path class="wire stroke-smoke" pathLength="1" fill="none" stroke-width="1.25" d="M60 65 V93 M60 160 V188 M60 258 V286" />
       <g class="stroke-bone/70" fill="none" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
         <g v-for="(step, i) in vertical" :key="i" class="vnode" :style="{ '--d': `${0.2 + i * 0.6}s` }" :transform="step.transform" v-html="icons[i]" />
       </g>
@@ -78,10 +78,10 @@ const icons = [
 ]
 // Each icon moved so its centre sits on the vertical wire at x=60, scaled to fit.
 const vertical = [
-  { transform: 'translate(60 52) scale(0.62) translate(-90 -90)', labelY: 57 },
-  { transform: 'translate(60 184) scale(0.62) translate(-470 -90)', labelY: 189 },
-  { transform: 'translate(60 310) scale(0.62) translate(-785 -90)', labelY: 315 },
-  { transform: 'translate(60 420) scale(0.62) translate(-1121 -91)', labelY: 425 },
+  { transform: 'translate(60 30) scale(0.62) translate(-90 -90)', labelY: 35 },
+  { transform: 'translate(60 126.4) scale(0.62) translate(-470 -90)', labelY: 131 },
+  { transform: 'translate(60 227) scale(0.62) translate(-785 -90)', labelY: 232 },
+  { transform: 'translate(60 326.6) scale(0.62) translate(-1121 -91)', labelY: 332 },
 ]
 
 // Centres of the four drawings, as a share of the 1200-wide viewBox.
@@ -122,7 +122,7 @@ const positions = ['7.5%', '39.2%', '65.4%', '93.4%']
   animation-delay: var(--d);
 }
 .packet-v {
-  offset-path: path('M60 87 V380');
+  offset-path: path('M60 65 V286');
   offset-rotate: 0deg;
   opacity: 0;
   animation: travel-v 5.5s linear 3s infinite;
@@ -163,14 +163,14 @@ text.label {
 @keyframes travel-v {
   0%        { offset-distance: 0%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
   1.5%      { opacity: 1; }
-  22.1%     { opacity: 1; }
-  23.6%     { offset-distance: 21.5%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
-  29.6%     { offset-distance: 44.71%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
-  31.1%     { opacity: 1; }
-  47.9%     { opacity: 1; }
-  49.4%     { offset-distance: 62.8%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
-  55.4%     { offset-distance: 86.69%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
-  56.9%     { opacity: 1; }
+  17.83%    { opacity: 1; }
+  19.33%    { offset-distance: 12.67%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  25.33%    { offset-distance: 42.99%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  26.83%    { opacity: 1; }
+  43.17%    { opacity: 1; }
+  44.67%    { offset-distance: 55.66%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  50.67%    { offset-distance: 87.33%; opacity: 0; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  52.17%    { opacity: 1; }
   68.5%     { opacity: 1; }
   70%, 100% { offset-distance: 100%; opacity: 0; }
 }

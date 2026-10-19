@@ -1,5 +1,6 @@
 <template>
-  <section class="min-h-[100svh] flex flex-col justify-between px-6 md:px-12 pt-24 pb-12 md:pb-16 max-w-[1320px] mx-auto">
+  <!-- On phones the hero is exactly one screen tall and the diagram shrinks to fit what's left -->
+  <section class="h-[100svh] min-h-[640px] md:h-auto md:min-h-[100svh] flex flex-col justify-between px-6 md:px-12 pt-20 md:pt-24 pb-8 md:pb-16 max-w-[1320px] mx-auto">
     <div class="intro">
       <h1 class="display text-bone text-[clamp(3.5rem,11vw,10rem)] leading-[0.92]">
         <a href="https://cloud.migueltaibo.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;cursor:text;user-select:text;">{{ t.hero.name }}</a>
@@ -13,8 +14,8 @@
       </div>
     </div>
 
-    <div class="mt-16 md:mt-24">
-      <HeroLine :labels="t.hero.stack" />
+    <div class="mt-10 md:mt-24 flex-1 min-h-0 md:flex-none">
+      <HeroLine :labels="t.hero.stack" class="h-full md:h-auto" />
     </div>
   </section>
 </template>
