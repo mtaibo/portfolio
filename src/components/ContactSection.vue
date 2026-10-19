@@ -1,5 +1,5 @@
 <template>
-  <footer class="px-6 md:px-12 pt-24 md:pt-36 pb-10 max-w-[1320px] mx-auto border-t border-hair">
+  <footer class="px-6 md:px-12 pt-32 md:pt-48 pb-10 max-w-[1320px] mx-auto border-t border-hair">
     <p class="text-ash text-lg max-w-[40ch]">{{ t.contact.heading }} {{ t.contact.subheading }}</p>
     <a
       href="mailto:contact@migueltaibo.com"

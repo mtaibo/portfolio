@@ -1,5 +1,5 @@
 <template>
-  <section class="px-6 md:px-12 py-24 md:py-36 max-w-[1320px] mx-auto border-t border-hair">
+  <section class="px-6 md:px-12 pt-24 md:pt-36 pb-36 md:pb-52 max-w-[1320px] mx-auto border-t border-hair">
     <div class="grid md:grid-cols-12 gap-10 md:gap-14">
       <p class="display md:col-span-7 text-bone text-3xl md:text-5xl leading-[1.12] max-w-[22ch]">
         {{ t.about.heading }}

@@ -5,7 +5,7 @@
       <h2 class="display text-bone text-[clamp(3.25rem,10vw,8.5rem)] leading-none">{{ t.projects.label }}</h2>
     </div>
 
-    <div id="projects" class="space-y-40 md:space-y-64 pt-10 md:pt-16 pb-24 md:pb-36">
+    <div id="projects" class="space-y-40 md:space-y-64 pt-10 md:pt-16 pb-40 md:pb-64">
       <article
         v-for="(project, i) in t.projects.items"
         :key="project.id"
