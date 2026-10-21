@@ -12,7 +12,7 @@ export const content = {
       heading: "Self-taught since I was twelve.",
       body: "I focus on backend and systems architecture. In my projects I build every layer, from the hardware to the interface, to understand and control how the whole thing works.",
       paragraphs: [
-        "Computer Science student at Universidade Da Coruña (UDC)",
+        "Software Engineering student at Universidade da Coruña (UDC)",
         "I've been programming for as long as I can remember, mostly self-taught. It's how I learned to understand how things work under the hood, and to build complete systems on my own. Architecture and backend are where I'm strongest.",
         "I built TPHome, which controls the blinds in my house end to end with firmware, backend and frontend I wrote myself. Then came TPCloud: my own personal cloud, with a single login, file storage, photo backup, a server control panel and a native app for iPhone and Mac.",
       ],

@@ -494,4 +494,4 @@ Command `update` and the output lines for macbook, desktop and tphome.
 **`index.html (browser tab and link previews, English only)`**
 
 - Title: Miguel Taibo
-- Description: Computer Science student at UDC. I build complete systems: firmware, backend and native apps.
+- Description: Software Engineering student at UDC. I build complete systems: firmware, backend and native apps.
