@@ -18,7 +18,7 @@ Miguel Taibo
 
 **`hero.statement`**
 
-Construyo mi propia infraestructura, desde el firmware de un interruptor hasta la app de mi móvil.
+Estudio Ingeniería Informática en la UDC y construyo mi propia infraestructura: firmware, servidores y apps nativas.
 
 **`hero.stack`**
 
@@ -49,7 +49,7 @@ TPCloud
 
 **`projects.items[0].tagline`**
 
-Mi propia nube en una Raspberry Pi: un único login, mis archivos y fotos, un panel del servidor y una app nativa.
+Nube personal en una Raspberry Pi 5. Login único, archivos, copia de fotos, panel del servidor y app nativa.
 
 **`projects.items[0].facts`**
 
@@ -66,7 +66,7 @@ TPHome
 
 **`projects.items[1].tagline`**
 
-Mi propio firmware en los interruptores de persiana de mi casa, controlados desde un plano en tiempo real.
+Firmware propio para los interruptores de persiana de mi casa, con backend en una Raspberry Pi y un plano en tiempo real.
 
 **`projects.items[1].facts`**
 
@@ -82,7 +82,7 @@ HackUDC 2026 — Reto Inditex
 
 **`projects.items[2].tagline`**
 
-Encuentra los productos de una foto de moda por cómo se ven. Hecho en un fin de semana con mi equipo.
+Buscador visual: a partir de una foto de moda, encuentra los productos del catálogo. Desarrollado en equipo en un fin de semana.
 
 **`projects.items[2].facts`**
 
@@ -98,7 +98,7 @@ Dotfiles
 
 **`projects.items[3].tagline`**
 
-Un flake de Nix que reconstruye mi portátil, mi escritorio y mi servidor con un solo comando.
+Un flake de Nix que configura mi portátil, mi escritorio y mi servidor con un solo comando.
 
 **`projects.items[3].facts`**
 
@@ -112,15 +112,15 @@ _Home, after the projects_
 
 **`about.heading`**
 
-Autodidacta desde los doce. Estudiante de Ingeniería Informática en la UDC.
+Autodidacta desde los doce.
 
 **`about.body`**
 
-Siempre he querido entender cómo funcionan las cosas por dentro. El backend y la arquitectura son mi fuerte, y me gusta controlar cada capa de lo que construyo.
+Me centro en backend y arquitectura de sistemas. En mis proyectos desarrollo cada capa, del hardware a la interfaz, para entender y controlar cómo funciona el conjunto.
 
 **`about.storyLink`**
 
-Leer mi historia
+Mi historia
 
 ## Contact
 
@@ -128,11 +128,11 @@ _Home, footer_
 
 **`contact.heading`**
 
-Hablemos.
+Contacto
 
 **`contact.subheading`**
 
-Abierto a prácticas, colaboraciones y buenas conversaciones sobre sistemas.
+Busco prácticas en backend o infraestructura.
 
 **`contact.email`**
 
@@ -154,7 +154,7 @@ Volver al inicio
 
 **`projectDetail.overview`**
 
-Descripción general
+Resumen
 
 **`projectDetail.modules`**
 
@@ -162,7 +162,7 @@ Módulos
 
 **`projectDetail.features`**
 
-Características principales
+Funciones
 
 **`projectDetail.architecture`**
 
@@ -170,7 +170,7 @@ Arquitectura
 
 **`projectDetail.challenges`**
 
-Retos y aprendizajes
+Retos
 
 **`projectDetail.viewOnGitHub`**
 
@@ -188,11 +188,11 @@ TPCloud
 
 **`projectDetail.projects.tpcloud.description`**
 
-Mi propia nube personal, autoalojada en una Raspberry Pi. Un único inicio de sesión para todo lo que hay en migueltaibo.com, almacenamiento de archivos y copia de fotos, un panel de control del servidor y una app nativa para iPhone y Mac.
+Nube personal autoalojada en una Raspberry Pi 5. Un único inicio de sesión para todos los servicios de migueltaibo.com, almacenamiento de archivos, copia de fotos, panel de administración y app nativa para iPhone y Mac.
 
 **`projectDetail.projects.tpcloud.overview`**
 
-Cada servicio que añadía a mi servidor necesitaba su propio login, su propio puerto y su propia forma de acceder desde fuera. TPCloud los convierte en una sola nube: un gateway expuesto únicamente a través de un túnel de Cloudflare, un servicio de autenticación con el que inicio sesión una vez para todos los subdominios, y un conjunto de módulos que se conectan a él. Es mi sustituto de Google Drive, iCloud Fotos y un montón de apps sueltas, en un hardware que es mío.
+Cada servicio de mi servidor tenía su propio login, su propio puerto y su propia forma de acceso externo. TPCloud los unifica. Un gateway, accesible solo a través de un túnel de Cloudflare, valida cada petición contra un servicio de autenticación común a todos los subdominios. Cada servicio es un módulo independiente que se conecta a ese núcleo. El sistema sustituye a Google Drive, iCloud Fotos y varias apps sueltas.
 
 **`projectDetail.projects.tpcloud.modules[0].name`**
 
@@ -200,7 +200,7 @@ Núcleo: gateway y autenticación
 
 **`projectDetail.projects.tpcloud.modules[0].description`**
 
-Caddy enruta cada subdominio y valida cada petición contra mi servicio de autenticación. Passkeys en la web, contraseña + TOTP en la app nativa, y sesiones que puedo ver y revocar desde cualquier sitio.
+Caddy enruta cada subdominio y valida cada petición contra el servicio de autenticación. Passkeys en la web, contraseña y TOTP en la app nativa. Las sesiones se pueden consultar y revocar desde cualquier dispositivo.
 
 **`projectDetail.projects.tpcloud.modules[1].name`**
 
@@ -208,7 +208,7 @@ TPStore
 
 **`projectDetail.projects.tpcloud.modules[1].description`**
 
-Mi nube de archivos y fotos: un explorador con subidas que se reanudan, miniaturas y soporte ZIP, enlaces públicos con contraseña, y el backend al que mi iPhone sube sus fotos.
+Almacenamiento de archivos y fotos. Subidas por partes reanudables, miniaturas, soporte para ZIP y enlaces públicos con contraseña. Es el destino de la copia de fotos del iPhone.
 
 **`projectDetail.projects.tpcloud.modules[2].name`**
 
@@ -216,7 +216,7 @@ TPApp
 
 **`projectDetail.projects.tpcloud.modules[2].description`**
 
-Una app nativa en SwiftUI para iPhone y Mac que sustituye a las webs: archivos, una galería al estilo de Fotos con copia en segundo plano, mi casa en un plano en tiempo real y los ajustes de la cuenta.
+App nativa en SwiftUI para iPhone y Mac que sustituye a las interfaces web: archivos, galería con copia de fotos en segundo plano, control de la casa sobre el plano en tiempo real y ajustes de la cuenta.
 
 **`projectDetail.projects.tpcloud.modules[3].name`**
 
@@ -224,24 +224,24 @@ TPAdmin
 
 **`projectDetail.projects.tpcloud.modules[3].description`**
 
-El panel de administración del servidor: temperatura y estado, cada contenedor y sus logs, redespliegues con un toque y sesiones de Claude Code en la Pi, todo desde el móvil.
+Panel de administración del servidor, pensado para el móvil. Temperatura y estado del sistema, contenedores y sus logs, redespliegues con un toque y sesiones de Claude Code en la Pi.
 
 **`projectDetail.projects.tpcloud.features`**
 
-- Inicio de sesión único en todos los subdominios con passkeys o contraseña + TOTP
-- Sin puertos abiertos: todo se accede a través de un túnel de Cloudflare
-- Almacenamiento con subidas por partes que se reanudan y enlaces protegidos con contraseña
-- Copia de las fotos del iPhone en segundo plano, sin duplicados y organizadas por fecha
-- App nativa para iOS y macOS con Liquid Glass y una galería al estilo de Fotos
-- Panel del servidor con estado, logs y redespliegues con un toque
+- Inicio de sesión único en todos los subdominios, con passkeys o contraseña y TOTP
+- Ningún puerto abierto: acceso exclusivo por túnel de Cloudflare
+- Subidas por partes reanudables y enlaces protegidos con contraseña
+- Copia de fotos del iPhone en segundo plano, sin duplicados y organizada por fecha
+- App nativa para iOS y macOS con Liquid Glass
+- Panel del servidor con estado, logs y redespliegues
 
 **`projectDetail.projects.tpcloud.architecture`**
 
-Todo corre en una Raspberry Pi 5 con Docker Compose. Un gateway Caddy detrás de cloudflared enruta cada subdominio a su contenedor en una red de Docker compartida, y pide al servicio de autenticación en FastAPI que valide la cookie de sesión antes de dejar pasar cada petición. TPStore y TPHome viven en sus propios repos y se unen a esa red como módulos, TPAdmin corre en el host como servicio de systemd, y TPApp habla directamente con todas sus APIs.
+Todo corre en una Raspberry Pi 5 con Docker Compose. Un gateway Caddy detrás de cloudflared enruta cada subdominio a su contenedor dentro de una red Docker compartida. Antes de dejar pasar una petición, consulta al servicio de autenticación en FastAPI si la cookie de sesión es válida. TPStore y TPHome viven en repositorios propios y se unen a esa red como módulos. TPAdmin corre en el host como servicio de systemd. TPApp se comunica directamente con todas las APIs.
 
 **`projectDetail.projects.tpcloud.challenges`**
 
-TPCloud me enseñó a pensar en sistemas en vez de en apps sueltas: diseñar un flujo de autenticación que funcione tanto en el navegador como en una app nativa, mantener los módulos independientes compartiendo un solo login, y conseguir que la copia de fotos sobreviva a que iOS suspenda la app. También me hizo tomarme mucho más en serio la seguridad, porque todo es accesible desde internet.
+El primer reto fue diseñar un flujo de autenticación válido tanto para el navegador como para una app nativa. El segundo, mantener los módulos en repositorios independientes compartiendo un solo login. El tercero, que la copia de fotos sobreviva a la suspensión de la app por parte de iOS. Al estar expuesto a internet, la seguridad condicionó cada decisión de diseño.
 
 ### TPHome (/tphome)
 
@@ -251,28 +251,28 @@ TPHome
 
 **`projectDetail.projects.tphome.description`**
 
-Domótica construida desde cero. Mi propio firmware en interruptores de persiana comerciales, un backend FastAPI en una Raspberry Pi que habla con ellos por un protocolo MQTT binario, y un plano de la casa en tiempo real.
+Domótica propia de principio a fin. Firmware en C++ para interruptores de persiana comerciales, backend en FastAPI sobre una Raspberry Pi, protocolo MQTT binario y un plano de la casa en tiempo real.
 
 **`projectDetail.projects.tphome.overview`**
 
-Me cansé de necesitar una app y una nube distintas para cada dispositivo de mi casa, sin poder cambiar cómo se comportan. Así que abrí los interruptores, sustituí el firmware de fábrica por el mío y construí todas las capas por encima: firmware en C++ en los chips, un backend en Python en una Raspberry Pi y un panel en Vue con un plano de la casa en tiempo real. Los dispositivos solo hablan con un broker de mi red local.
+Cada dispositivo de casa necesitaba su propia app y su propia nube, sin posibilidad de cambiar su comportamiento. Sustituí el firmware de fábrica de los interruptores por uno propio y construí el resto de capas: firmware en C++, backend en Python en una Raspberry Pi y panel en Vue con el plano de la casa. Los dispositivos solo se comunican con un broker en la red local.
 
 **`projectDetail.projects.tphome.features`**
 
 - Firmware propio en C++ para controladores de persiana ESP8266, con actualizaciones OTA
-- Protocolo MQTT binario y compacto diseñado desde cero
-- Posición calculada por tiempo: la persiana se para al 20% en la primera pulsación
+- Protocolo MQTT binario diseñado desde cero
+- Posición calculada por tiempo: la primera pulsación para la persiana al 20%
 - Descubrimiento y alta automática de dispositivos nuevos
-- Plano SVG interactivo con actualizaciones en tiempo real por WebSocket
-- También disponible como la pestaña Home de mi app nativa
+- Plano SVG interactivo con actualizaciones por WebSocket
+- Integrado como la pestaña Home de TPApp
 
 **`projectDetail.projects.tphome.architecture`**
 
-Los interruptores se conectan por WiFi a un broker Mosquitto en la Raspberry Pi. El backend FastAPI traduce los comandos REST a MQTT, interpreta el estado de 2 bytes de cada dispositivo, lo guarda en SQLite y envía eventos en directo al frontend por WebSocket. Desde fuera de casa se accede a través del gateway de TPCloud, con el mismo login que todo lo demás.
+Los interruptores se conectan por WiFi a un broker Mosquitto en la Raspberry Pi. El backend en FastAPI traduce los comandos REST a MQTT, interpreta el estado de 2 bytes de cada dispositivo, lo guarda en SQLite y emite eventos al frontend por WebSocket. El acceso desde fuera de casa pasa por el gateway de TPCloud, con el mismo login que el resto de servicios.
 
 **`projectDetail.projects.tphome.challenges`**
 
-Escribir firmware para chips con 80 KB de RAM me obligó a evitar por completo la memoria dinámica y el código bloqueante, y a calcular la posición de la persiana solo a partir del tiempo, porque no hay sensor. Hacerlo fiable ante cortes y reconexiones de WiFi llevó mucho más tiempo que hacerlo funcionar la primera vez. El soporte para chips BK7231N sigue en desarrollo.
+Los chips tienen 80 KB de RAM. El firmware evita por completo la memoria dinámica y el código bloqueante, y calcula la posición de la persiana solo por tiempo, porque no hay sensor. La parte más costosa fue hacerlo fiable ante cortes y reconexiones de WiFi. El soporte para chips BK7231N está en desarrollo.
 
 ### HackUDC 2026 — Reto Inditex (/hackudc26)
 
@@ -282,27 +282,27 @@ HackUDC 2026 — Reto Inditex
 
 **`projectDetail.projects.hackudc26.description`**
 
-Buscador visual de moda hecho con mi equipo en un fin de semana. Subes la foto de un look y devuelve los productos más parecidos del catálogo, con un modelo CLIP ajustado y FAISS.
+Buscador visual de moda desarrollado en equipo durante un fin de semana. A partir de la foto de un look, devuelve los productos más parecidos del catálogo con un modelo CLIP ajustado y FAISS.
 
 **`projectDetail.projects.hackudc26.overview`**
 
-Inditex nos dio miles de fotos editoriales de modelos con looks completos y un catálogo de productos, y nos pidió encontrar qué productos aparecen en cada foto solo a partir de la imagen. Lo hicimos en el HackUDC 2026 un equipo de estudiantes de primero de Ingeniería Informática e Ingeniería de Datos: subes una foto por archivo o URL y obtienes los productos más cercanos, ordenados por parecido visual.
+Inditex proporcionó miles de fotos editoriales con looks completos y su catálogo de productos. El reto era identificar qué productos aparecen en cada foto usando solo la imagen. Lo resolvimos un equipo de estudiantes de primero de Ingeniería Informática e Ingeniería de Datos. La foto se sube por archivo o URL y el sistema devuelve los productos ordenados por similitud visual.
 
 **`projectDetail.projects.hackudc26.features`**
 
-- OpenCLIP ViT-B/32 ajustado con pares look–producto y una loss contrastiva
-- Índice FAISS del catálogo para búsquedas en milisegundos
-- Backend FastAPI con endpoints por archivo y por URL
-- Frontend web sencillo con arrastrar y soltar y porcentajes de similitud
-- Todo en contenedores con Docker Compose
+- OpenCLIP ViT-B/32 ajustado con pares look–producto y loss contrastiva
+- Índice FAISS del catálogo con búsquedas en milisegundos
+- Backend en FastAPI con endpoints por archivo y por URL
+- Frontend web con arrastrar y soltar y porcentaje de similitud
+- Despliegue con Docker Compose
 
 **`projectDetail.projects.hackudc26.architecture`**
 
-Cada producto del catálogo se convierte una vez en un embedding con el encoder ajustado y se guarda en un índice FAISS de producto interno. Al buscar, la foto subida pasa por el mismo encoder y FAISS devuelve los productos más cercanos, que la API envía con su imagen, descripción y puntuación.
+Cada producto del catálogo se convierte una vez en un embedding con el encoder ajustado y se guarda en un índice FAISS de producto interno. En cada búsqueda, la foto pasa por el mismo encoder y FAISS devuelve los productos más cercanos. La API los envía con su imagen, descripción y puntuación.
 
 **`projectDetail.projects.hackudc26.challenges`**
 
-No teníamos GPU, así que todo el ajuste se hizo en CPU en Google Colab. Eso nos obligó a descongelar solo los cuatro últimos bloques del encoder de imagen y a sacar el máximo partido a muy poca potencia en un solo fin de semana.
+No teníamos GPU, así que todo el ajuste fino se hizo en CPU en Google Colab. Para que el entrenamiento cupiera en un fin de semana, solo descongelamos los cuatro últimos bloques del encoder de imagen.
 
 ### Dotfiles (/dotfiles)
 
@@ -312,28 +312,28 @@ Dotfiles
 
 **`projectDetail.projects.dotfiles.description`**
 
-Un único flake de Nix para todas mis máquinas. Un comando configura mi MacBook, mi escritorio NixOS y la Raspberry Pi de mi servidor: mismo shell, mismos editores, mismas herramientas.
+Un único flake de Nix para todas mis máquinas. Un comando configura mi MacBook, mi escritorio con NixOS y la Raspberry Pi del servidor con el mismo shell, editores y herramientas.
 
 **`projectDetail.projects.dotfiles.overview`**
 
-Antes configuraba cada máquina a mano y todas acababan siendo un poco distintas. Ahora todo mi entorno es código: un único flake de Nix describe mi MacBook, mi escritorio NixOS y mi Raspberry Pi, y cualquiera se puede reconstruir desde cero con un comando.
+Configuraba cada máquina a mano y ninguna quedaba igual. Ahora todo el entorno está definido en código: un flake describe las tres máquinas y cualquiera se reconstruye desde cero con un comando.
 
 **`projectDetail.projects.dotfiles.features`**
 
 - Un flake con configuraciones de nix-darwin, NixOS y Home Manager independiente
-- Módulos compartidos para el shell, los editores y los paquetes en todas las máquinas
+- Módulos compartidos de shell, editores y paquetes para todas las máquinas
 - Zsh, Starship, Kitty, Neovim y VS Code declarados en Nix
 - Escritorio Hyprland con NVIDIA en NixOS
 - Instalación en una línea para una Raspberry Pi recién formateada
-- Un comando update que reconstruye la máquina en la que esté
+- Un comando update que reconstruye la máquina actual
 
 **`projectDetail.projects.dotfiles.architecture`**
 
-flake.nix define una configuración por máquina. Cada host solo declara lo que lo hace único e importa los módulos compartidos de Home Manager: el Mac y el escritorio usan el conjunto completo, la Pi solo el shell y Neovim. Los archivos de configuración normales viven en una carpeta assets y se enlazan en su sitio.
+flake.nix define una configuración por máquina. Cada host declara solo lo que lo diferencia e importa los módulos compartidos de Home Manager. El Mac y el escritorio usan el conjunto completo; la Pi, solo el shell y Neovim. Los archivos de configuración convencionales viven en una carpeta assets y se enlazan en su ruta.
 
 **`projectDetail.projects.dotfiles.challenges`**
 
-Lo difícil fue mantener una única fuente de verdad para tres sistemas muy distintos (macOS, NixOS y Raspberry Pi OS) sin que la configuración se convirtiera en un laberinto de casos especiales. Nix lo hace posible, pero me llevó varias reescrituras dar con la estructura de módulos adecuada.
+Mantener una sola fuente de verdad para macOS, NixOS y Raspberry Pi OS sin llenar la configuración de casos especiales. Nix lo permite, pero necesité varias reescrituras hasta dar con una estructura de módulos que escalara.
 
 ## Story
 
@@ -345,25 +345,25 @@ Volver al inicio
 
 **`story.heading`**
 
-Mi historia completa
+Mi historia
 
 **`story.subheading`**
 
-De juegos de LEGO a sistemas distribuidos.
+Cómo empecé a programar y lo que he construido desde entonces.
 
 ### Primera infancia
 
 **`story.entries[0].era`**
 
-Primera infancia
+Infancia
 
 **`story.entries[0].title`**
 
-Constructor de nacimiento
+LEGO
 
 **`story.entries[0].body`**
 
-Antes de tocar un ordenador, estaba obsesionado con construir cosas. Pasaba las tardes montando sets de LEGO pieza a pieza — fuera cual fuera el tamaño, los terminaba en una sola sentada. Le decía a todo el mundo que quería ser inventor.
+Montaba los sets de LEGO de una sentada, fuera cual fuera su tamaño. A quien me preguntaba, le decía que quería ser inventor.
 
 ### Primaria
 
@@ -377,7 +377,7 @@ Scratch y robótica
 
 **`story.entries[1].body`**
 
-En el colegio tuve mi primer contacto con la programación a través de Scratch, y empecé a ir a clases de robótica — USB en mano — para programar en los ordenadores del cole. Visité el MUNCIT en A Coruña para ver robots de verdad. Me encantó. En casa seguía haciendo proyectillos en Scratch por pura diversión.
+Mis primeros programas fueron en Scratch, en el colegio, junto con clases de robótica. Una visita al MUNCIT de A Coruña me acercó a los robots reales. En casa seguía haciendo proyectos en Scratch.
 
 ### 12 años
 
@@ -387,25 +387,25 @@ En el colegio tuve mi primer contacto con la programación a través de Scratch,
 
 **`story.entries[2].title`**
 
-Python y Mastermind
+Python
 
 **`story.entries[2].body`**
 
-El verano que cumplí 12 años encontré a Nate Gentile en YouTube y descubrí su academia Mastermind. Empecé su curso de Python y me enganchó de inmediato — sin IA, sin atajos, solo código. Pasaba horas programando cada día.
+Ese verano empecé el curso de Python de Mastermind, la academia de Nate Gentile. Programaba varias horas al día.
 
 ### 12 años — ese mismo verano
 
 **`story.entries[3].era`**
 
-12 años — ese mismo verano
+12 años
 
 **`story.entries[3].title`**
 
-Ciberseguridad, Linux y la terminal
+Linux y ciberseguridad
 
 **`story.entries[3].body`**
 
-Justo después de Python, hice el curso de ciberseguridad de Savitar en Mastermind. Se abrió un mundo entero: Linux, redes, máquinas virtuales, personalización de la terminal. Tenía doce años y ya levantaba VMs y leía páginas de man.
+Después hice el curso de ciberseguridad de Savitar, también en Mastermind. Aprendí Linux, redes y máquinas virtuales, y empecé a trabajar desde la terminal.
 
 ### 15–16 años
 
@@ -415,11 +415,11 @@ Justo después de Python, hice el curso de ciberseguridad de Savitar en Mastermi
 
 **`story.entries[4].title`**
 
-Desarrollo web y la llamada del backend
+Desarrollo web
 
 **`story.entries[4].body`**
 
-En tercero y cuarto de la ESO empecé con HTML, CSS y JavaScript — sobre todo con tutoriales de Dalto en YouTube. Hice calculadoras sencillas y webs pequeñas. Otros como Hola Mundo y Midu Dev me profundizaron en el mundo web, y quedó claro que lo que realmente me gustaba era el backend: la lógica, la arquitectura, los sistemas por debajo.
+En 3.º y 4.º de la ESO aprendí HTML, CSS y JavaScript con los tutoriales de Dalto, Hola Mundo y midudev, y construí calculadoras y webs pequeñas. Ahí vi que lo que me interesaba era el backend: la lógica y la arquitectura.
 
 ### Bachillerato
 
@@ -429,17 +429,17 @@ Bachillerato
 
 **`story.entries[5].title`**
 
-Cabeza agachada, vista en el objetivo
+Selectividad
 
 **`story.entries[5].body`**
 
-Dejé de lado los proyectos personales para centrarme en la selectividad. El objetivo era claro: Ingeniería Informática en la UDC. También fue la época en la que la IA empezó a aparecer por todos lados — empecé a trastear con ella pronto, mucho antes de que se pusiera de moda.
+Aparqué los proyectos personales para preparar la selectividad y entrar en Ingeniería Informática en la UDC. En esa época empecé a trabajar con herramientas de IA.
 
 ### 18 años — 1.º de carrera
 
 **`story.entries[6].era`**
 
-18 años — 1.º de carrera
+18 años · 1.º de carrera
 
 **`story.entries[6].title`**
 
@@ -447,7 +447,7 @@ TPHome
 
 **`story.entries[6].body`**
 
-Empecé Ingeniería Informática en la Universidade Da Coruña y, en paralelo, comencé TPHome. Diseñé el firmware, el backend y el frontend completamente desde cero. Hoy controla las persianas de mi casa — de principio a fin, con software que escribí yo mismo.
+Empecé Ingeniería Informática en la Universidade da Coruña y, en paralelo, TPHome: firmware, backend y frontend desde cero. Hoy controla las persianas de mi casa.
 
 ### 19 años
 
@@ -461,7 +461,7 @@ TPCloud
 
 **`story.entries[7].body`**
 
-Este verano empecé TPCloud, mi propia nube personal. Empezó como un único inicio de sesión para mis servicios y creció hasta incluir almacenamiento de archivos, copia de fotos desde el iPhone, un panel de control de mi servidor y una app nativa en SwiftUI que lo une todo. Es lo más ambicioso que he construido hasta ahora — y todavía no he terminado.
+En el verano de 2026 empecé TPCloud. Nació como un login único para mis servicios y hoy incluye almacenamiento de archivos, copia de fotos del iPhone, un panel del servidor y una app nativa en SwiftUI. Sigue en desarrollo.
 
 ## Fixed text
 
@@ -494,4 +494,4 @@ Command `update` and the output lines for macbook, desktop and tphome.
 **`index.html (browser tab and link previews, English only)`**
 
 - Title: Miguel Taibo
-- Description: Computer Science student at UDC, building systems end to end, from custom firmware to backend and frontend.
+- Description: Computer Science student at UDC. I build complete systems: firmware, backend and native apps.
