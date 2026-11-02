@@ -486,23 +486,9 @@ _Not in src/content/index.js; written directly in the components and the same in
 
 Diagram labels, the modules of each machine, the real output of `update`, and Grade's iPhone screen, always in Spanish like the app.
 
-**`src/components/visuals/CloudVisual.vue (TPCloud diagram)`**
+**`src/components/stage/scenes.js (project pages)`**
 
-- Browser
-- TPApp
-- Internet
-- Cloudflare Tunnel
-- gateway
-- auth
-- login, accounts, cloud, store, share, tphome, admin
-
-**`src/components/visuals/SearchVisual.vue (HackUDC diagram, translated)`**
-
-- tu foto
-
-**`src/components/visuals/TerminalVisual.vue (Dotfiles terminal)`**
-
-Command `update` and the output lines for macbook, desktop and tphome.
+Diagram labels, TPHome's press through each layer, TPCloud's ways in, the encoder blocks and each machine's `update` output. Labels that are words change with the language; commands and module names stay as they are.
 
 **`index.html (browser tab and link previews, English only)`**
 

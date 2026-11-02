@@ -35,7 +35,7 @@ A timeline of how I got here, from my first lines of code to the systems I run t
 <td width="33%" valign="top">
 
 ### 🧩 Project pages
-A page for each project, with its visual full width: [TPCloud](https://migueltaibo.com/tpcloud), [TPHome](https://migueltaibo.com/tphome), [HackUDC 2026](https://migueltaibo.com/hackudc26) and my [dotfiles](https://migueltaibo.com/dotfiles).
+A page for each project, with a pinned scene that plays as you scroll: [TPCloud](https://migueltaibo.com/tpcloud), [TPHome](https://migueltaibo.com/tphome), [HackUDC 2026](https://migueltaibo.com/hackudc26) and my [dotfiles](https://migueltaibo.com/dotfiles).
 
 </td>
 </tr>
@@ -45,27 +45,28 @@ A page for each project, with its visual full width: [TPCloud](https://migueltai
 
 There's no CMS and no backend. Every text on the site, in both languages, lives in a single file, [`src/content/index.js`](src/content/index.js), and the components only read from it. Changing the bio or the story means editing that file and nothing else; a new project only needs its entry there, a route and a visual.
 
-The home page is one scroll-driven scene, plain SVG and canvas with no animation library, in [`src/components/journey/`](src/components/journey/). The project pages use plain SVG visuals drawn from real data, animated with CSS:
+The motion is plain SVG and canvas, with no animation library, drawn from real data. The home page is one scroll-driven take in [`src/components/journey/`](src/components/journey/). Each project page pins a scene in [`src/components/stage/`](src/components/stage/) with three moments, one per text, and the camera dives from one to the next:
 
-| Project | Visual |
-|---|---|
-| **TPCloud** | The architecture, with requests travelling from the internet through the gateway to each module |
-| **TPHome** | The floor plan from [tphome](https://github.com/mtaibo/tphome), with its blinds opening and closing |
-| **HackUDC** | A photo being scanned and its closest products with their similarity |
-| **Dotfiles** | A terminal running `update` on each of my machines |
+| Project | Overview | Architecture | Challenges |
+|---|---|---|---|
+| **TPCloud** | Every module waking behind one login | A request crossing the tunnel, the gateway and auth | The passkey and password + TOTP ways in |
+| **TPHome** | The floor plan from [tphome](https://github.com/mtaibo/tphome) | A press going down through every layer | A working switch and the two bytes it publishes |
+| **HackUDC** | A point cloud you can search | A photo through the encoder and FAISS | The encoder blocks that were trained |
+| **Dotfiles** | The flake branching into three machines | The modules each machine imports | `update` running on each of them |
 
-They only animate while they're on screen, switch to a taller layout on phones, and stay still when the system asks for reduced motion.
+Scenes respect reduced motion, and work on phones.
 
 ```
 src/
 ├── content/index.js      # All texts, in English and Spanish
-├── data/floorplan.js     # TPHome floor plan used by its visual
-├── composables/          # useLanguage, useInView, useCompact
+├── data/                 # TPHome's floor plan, what each machine imports and prints
+├── composables/          # useLanguage
 ├── router/               # Home, /story and one route per project
 ├── views/                # Home, StoryView, ProjectDetail
 └── components/
-    ├── visuals/          # CloudVisual, HomeVisual, SearchVisual, TerminalVisual
-    └── …                 # Hero, Projects, About, Contact, LanguageToggle, SocialLinks
+    ├── journey/          # The home page: Journey.vue, journey.js, journey.css
+    ├── stage/            # The project pages' pinned scenes: ProjectStage.vue, scenes.js
+    └── …                 # LanguageToggle, SocialLinks
 ```
 
 The build is a static bundle served from Cloudflare's edge as Workers static assets, with single-page-app fallback so direct links like `/tphome` work.

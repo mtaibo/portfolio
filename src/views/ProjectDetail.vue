@@ -3,7 +3,7 @@
     <a href="/" @click="handleBack" class="link inline-block text-sm text-ash hover:text-bone">{{ t.projectDetail.backToHome }}</a>
 
     <header class="intro mt-16 md:mt-24 grid md:grid-cols-12 gap-8 md:gap-14 items-end">
-      <h1 class="display md:col-span-7 text-bone text-[clamp(3rem,9vw,8rem)] leading-[0.95]">{{ project.name }}</h1>
+      <h1 class="display md:col-span-7 text-bone text-[clamp(3rem,9vw,8rem)] leading-[0.95]" :aria-label="project.name"><span v-for="(word, w) in nameWords" :key="`${projectId}-${w}`" class="word" aria-hidden="true"><span v-for="(ch, c) in word" :key="c" class="ch" :style="{ animationDelay: `${(w * 4 + c) * 32}ms` }">{{ ch }}</span></span></h1>
       <div class="md:col-span-5 md:pb-3">
         <p class="text-ash text-lg leading-relaxed max-w-[44ch]">{{ project.description }}</p>
         <ul class="flex flex-wrap gap-x-5 gap-y-2 mt-6 text-sm text-bone/70">
@@ -14,18 +14,14 @@
       </div>
     </header>
 
-    <ProjectVisual :id="projectId" :class="['mt-14 md:mt-20 md:aspect-[16/9]', ['tpcloud', 'hackudc26'].includes(projectId) ? 'aspect-[4/5] sm:aspect-[4/3]' : 'aspect-[4/3]']" />
+    <ProjectStage class="mt-14 md:mt-20 -mx-6 md:-mx-12 stage-bleed" :project-id="projectId" :name="project.name" :texts="stageTexts" />
 
-    <div class="mt-24 md:mt-36 space-y-20 md:space-y-28">
-      <section v-if="project.overview" class="row">
-        <h2 class="heading">{{ t.projectDetail.overview }}</h2>
-        <p class="body text-bone/85 text-xl md:text-2xl leading-relaxed">{{ project.overview }}</p>
-      </section>
+    <div class="mt-10 md:mt-16 space-y-20 md:space-y-28">
 
-      <section v-if="project.modules" class="row">
+      <section v-if="project.modules" class="row reveal">
         <h2 class="heading">{{ t.projectDetail.modules }}</h2>
         <ul class="body divide-y divide-hair border-y border-hair">
-          <li v-for="module in project.modules" :key="module.name" class="py-7 grid md:grid-cols-[1fr_auto] gap-3 md:gap-10">
+          <li v-for="(module, m) in project.modules" :key="module.name" :style="{ '--i': m }" class="item py-7 grid md:grid-cols-[1fr_auto] gap-3 md:gap-10">
             <div>
               <h3 class="display text-bone text-2xl md:text-3xl">{{ module.name }}</h3>
               <p class="text-ash leading-relaxed mt-2 max-w-[56ch]">{{ module.description }}</p>
@@ -35,27 +31,18 @@
         </ul>
       </section>
 
-      <section v-if="project.features" class="row">
+      <section v-if="project.features" class="row reveal">
         <h2 class="heading">{{ t.projectDetail.features }}</h2>
         <ul class="body grid sm:grid-cols-2 gap-x-10 gap-y-5">
-          <li v-for="feature in project.features" :key="feature" class="flex gap-3 text-ash leading-relaxed">
+          <li v-for="(feature, f) in project.features" :key="feature" :style="{ '--i': f }" class="item flex gap-3 text-ash leading-relaxed">
             <span class="mt-[0.7em] w-1 h-1 shrink-0 rounded-full bg-signal/70"></span>{{ feature }}
           </li>
         </ul>
       </section>
 
-      <section v-if="project.architecture" class="row">
-        <h2 class="heading">{{ t.projectDetail.architecture }}</h2>
-        <p class="body text-ash text-lg leading-relaxed max-w-[62ch]">{{ project.architecture }}</p>
-      </section>
-
-      <section v-if="project.challenges" class="row">
-        <h2 class="heading">{{ t.projectDetail.challenges }}</h2>
-        <p class="body text-ash text-lg leading-relaxed max-w-[62ch]">{{ project.challenges }}</p>
-      </section>
     </div>
 
-    <footer class="mt-28 md:mt-40 pt-10 border-t border-hair flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+    <footer class="reveal mt-28 md:mt-40 pt-10 border-t border-hair flex flex-col md:flex-row md:items-end md:justify-between gap-10">
       <a v-if="project.github" :href="project.github" target="_blank" rel="noopener noreferrer" class="link self-start text-sm text-bone">
         {{ t.projectDetail.viewOnGitHub }}
       </a>
@@ -68,10 +55,10 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useLanguage } from '../composables/useLanguage.js'
-import ProjectVisual from '../components/ProjectVisual.vue'
+import ProjectStage from '../components/stage/ProjectStage.vue'
 
 const router = useRouter()
 const { t } = useLanguage()
@@ -85,6 +72,23 @@ const handleBack = (e) => {
 }
 
 const project = computed(() => t.value.projectDetail.projects[props.projectId])
+const nameWords = computed(() => project.value.name.split(' ').map((w, i, all) => [...w, ...(i < all.length - 1 ? ['\u00a0'] : [])]))
+const stageTexts = computed(() => [
+  { title: t.value.projectDetail.overview, body: project.value.overview },
+  { title: t.value.projectDetail.architecture, body: project.value.architecture },
+  { title: t.value.projectDetail.challenges, body: project.value.challenges },
+])
+
+// Everything below the scene arrives as it comes into view.
+let seen
+function watchReveals() {
+  seen?.disconnect()
+  seen = new IntersectionObserver((entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); seen.unobserve(e.target) } }), { rootMargin: '0px 0px -12%' })
+  document.querySelectorAll('.reveal').forEach((n) => { n.classList.remove('in'); seen.observe(n) })
+}
+onMounted(watchReveals)
+onBeforeUnmount(() => seen?.disconnect())
+watch(() => props.projectId, () => nextTick(watchReveals))
 const items = computed(() => t.value.projects.items)
 const summary = computed(() => items.value.find((p) => p.id === props.projectId))
 const next = computed(() => {
@@ -114,8 +118,19 @@ const next = computed(() => {
   font-size: 1.5rem;
   color: var(--color-bone);
 }
-.intro {
-  animation: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+.word { display: inline-block; white-space: nowrap; }
+.ch { display: inline-block; animation: letter .9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+@keyframes letter {
+  from { opacity: 0; transform: translateY(.55em) rotate(4deg); }
+  to { opacity: 1; transform: none; }
+}
+.stage-bleed { width: 100vw; margin-left: calc(50% - 50vw); margin-right: 0; }
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s ease, transform .9s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal.in { opacity: 1; transform: none; }
+.reveal .item { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: calc(var(--i) * 70ms + 150ms); }
+.reveal.in .item { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .ch, .reveal, .reveal .item { animation: none; transition: none; opacity: 1; transform: none; }
 }
 @keyframes rise {
   from { opacity: 0; transform: translateY(14px); }

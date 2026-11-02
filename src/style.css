@@ -60,11 +60,6 @@ button:focus-visible {
   letter-spacing: -0.03em;
 }
 
-/* Visuals only animate while they're on screen (see useInView). */
-.visual:not(.is-live) * {
-  animation-play-state: paused !important;
-}
-
 /* Links that underline on hover instead of carrying an arrow. */
 .link {
   background-image: linear-gradient(currentColor, currentColor);
