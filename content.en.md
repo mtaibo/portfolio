@@ -490,6 +490,10 @@ Diagram labels, the modules of each machine, the real output of `update`, and Gr
 
 Diagram labels, TPHome's press through each layer, TPCloud's ways in, the encoder blocks and each machine's `update` output. Labels that are words change with the language; commands and module names stay as they are.
 
+**`src/components/story/blocks.js (story scenes)`**
+
+The Scratch blocks, the code lines, the calculator and the diagram labels drawn in each moment. The Scratch blocks change with the language.
+
 **`index.html (browser tab and link previews, English only)`**
 
 - Title: Miguel Taibo

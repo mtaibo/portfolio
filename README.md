@@ -29,7 +29,7 @@ One continuous take: scrolling dives through the "o" of my name into my personal
 <td width="33%" valign="top">
 
 ### 📖 Story
-A timeline of how I got here, from my first lines of code to the systems I run today, at [`/story`](https://migueltaibo.com/story).
+How I got here, at [`/story`](https://migueltaibo.com/story): it starts with LEGO, and the same pile of blocks keeps being rebuilt as you scroll, into Scratch and a robot, Python, a terminal, a calculator, an exam sheet, my home's floor plan and my cloud.
 
 </td>
 <td width="33%" valign="top">
@@ -66,6 +66,7 @@ src/
 └── components/
     ├── journey/          # The home page: Journey.vue, journey.js, journey.css
     ├── stage/            # The project pages' pinned scenes: ProjectStage.vue, scenes.js
+    ├── story/            # The story's pile of blocks: StoryStage.vue, blocks.js
     └── …                 # LanguageToggle, SocialLinks
 ```
 
