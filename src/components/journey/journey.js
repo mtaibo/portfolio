@@ -1,5 +1,6 @@
 // One continuous take: the name, then a dive through the "o" into each project, and back out to where it began.
 import plan from '../../data/floorplan.js'
+import { HOSTS, MACHINE, ROWS } from '../../data/machines.js'
 
 export function startJourney(container, text) {
   let raf = 0, stopped = false
@@ -80,32 +81,9 @@ export function startJourney(container, text) {
 
   // ---- level 4: `update`, and the modules each host really imports falling into its machine ----
   // Rows run bottom to top. A shared module lands on every host at the same moment; the Pi only takes the shell and Neovim subset.
-  const HOSTS = [['macbook', -330], ['desktop', 0], ['tphome', 330]]
-  const ROWS = [
-    [['zsh', 0, 1, 2]], [['starship', 0, 1, 2]], [['neovim', 0, 1, 2]], [['fastfetch', 0, 1, 2]],
-    [['kitty', 0, 1]], [['vscode', 0, 1]],
-    [['colima', 0, true], ['hyprland', 1, true]], [['nvidia', 1, true]],
-  ]
   const WORD_X = -270, WORD_Y = -300, BUS_Y = -128, FLOOR = 422, BLOCK = 62
 
   // ---- level 5: the same blocks turn into what they configure. Output lines are the real ones from each rebuild. ----
-  const MACHINE = {
-    macbook: {
-      lines: ['sudo darwin-rebuild switch --flake ~/Dotfiles#macbook', 'building the system configuration...', 'activating home-manager configuration for migueltaibo', 'setting up Kitty icon and ⌘K shortcut', 'macbook is up to date'],
-      info: [['os', 'macOS'], ['shell', 'zsh'], ['term', 'kitty'], ['editor', 'neovim']],
-      flake: ['darwinConfigurations.macbook', '  → hosts/macbook', '  → modules/home  (shared)'],
-    },
-    desktop: {
-      lines: ['sudo nixos-rebuild switch --flake ~/dotfiles#desktop', 'building Hyprland, NVIDIA and GRUB theme...', 'activating the configuration...', 'restarting sddm.service', 'desktop is up to date'],
-      info: [['os', 'NixOS'], ['wm', 'Hyprland'], ['shell', 'zsh'], ['term', 'kitty']],
-      flake: ['nixosConfigurations.desktop', '  → hosts/desktop', '  → modules/home  (shared)'],
-    },
-    tphome: {
-      lines: ['home-manager switch --flake ~/dotfiles#tphome', 'fetching SSH keys from github.com/mtaibo.keys', 'checking dnsmasq for tp.home', 'linking zsh, starship and neovim', 'tphome is up to date'],
-      info: [['os', 'Raspberry Pi OS'], ['shell', 'zsh'], ['prompt', 'starship'], ['editor', 'neovim']],
-      flake: ['homeConfigurations.tphome', '  → hosts/tphome', '  → shell + nvim subset'],
-    },
-  }
   const narrow = innerWidth < 760
   const SCREEN = narrow ? { x: -490, y: -490, w: 980, h: 770 } : { x: -490, y: -340, w: 980, h: 610 }
   const PANES = narrow ? {
@@ -129,7 +107,6 @@ export function startJourney(container, text) {
     el('rect', { x: SCREEN.x, y: SCREEN.y, width: SCREEN.w, height: SCREEN.h, rx: 16 }, clip)
     const wall = el('g', { 'clip-path': `url(#${clipId})` }, desk)
     el('rect', { x: SCREEN.x, y: SCREEN.y, width: SCREEN.w, height: SCREEN.h, fill: '#090908' }, wall)
-    const photo = el('image', { href: '/journey-wall.jpg', x: SCREEN.x, y: SCREEN.y, width: SCREEN.w, height: SCREEN.h, preserveAspectRatio: 'xMidYMid slice', opacity: .62 }, wall)
     el('rect', { x: SCREEN.x, y: SCREEN.y, width: SCREEN.w, height: SCREEN.h, rx: 16, class: 'g-box' }, desk)
     const pane = ({ x, y, w, h }) => el('rect', { x, y, width: w, height: h, rx: 12, class: 'glass' }, desk)
     const text = (x, y, cls, size, value = '', parent = desk) => el('text', { x, y, class: `tt ${cls}`, style: `font-size:${size}px` }, parent, value)
@@ -217,7 +194,7 @@ export function startJourney(container, text) {
       infoHead.textContent = `╭─ ${name}`
       infoRows.forEach((t, i) => t.textContent = `${i === 3 ? '╰' : '│'} ${m.info[i][0].padEnd(narrow ? 7 : 7)}${m.info[i][1]}`)
       codeRows.forEach((t, i) => t.textContent = m.flake[i])
-      photo.style.display = bar.style.display = isDesktop ? '' : 'none'
+      bar.style.display = isDesktop ? '' : 'none'
       tabMap.forEach(t => t.t.classList.toggle('on', t.name === name))
       placeWord()
     }
@@ -308,7 +285,7 @@ export function startJourney(container, text) {
   const homeHTML = () => `<div class="scr home"><div class="topbtns"><div class="gbtn">${glyph('cal').replace('<svg', '<svg fill="none" stroke="currentColor" stroke-width="1.8"')}</div><div class="gbtn">${glyph('more').replace('<svg', '<svg fill="currentColor"')}</div></div>
     <div class="h-year rnd">2º Año</div><div class="h-term rnd">1º Cuatrimestre</div>
     <div class="tiles">${TILES.map(([n, g, c], i) => { const s = GRADE.current.find(x => x.n === n), f = s.e / s.o, C = 2 * Math.PI * 12
-      return `<div class="tile${n === 'Sistemas Operativos' ? ' tapped' : ''}"><div class="ic" style="background:linear-gradient(${c})">${glyph(g)}</div><svg class="ring" viewBox="0 0 28 28"><circle cx="14" cy="14" r="12"/><circle class="on" cx="14" cy="14" r="12" stroke-dasharray="${f * C} ${C}"/></svg><div class="tname">${n}</div></div>` }).join('')}</div>${TABS('Asignaturas')}</div>`
+      return `<div class="tile${n === 'Sistemas Operativos' ? ' tapped' : ''}"><div class="ic" style="background:linear-gradient(${c})">${glyph(g)}</div><svg class="progress-ring" viewBox="0 0 28 28"><circle cx="14" cy="14" r="12"/><circle class="on" cx="14" cy="14" r="12" stroke-dasharray="${f * C} ${C}"/></svg><div class="tname">${n}</div></div>` }).join('')}</div>${TABS('Asignaturas')}</div>`
   const ICON_PX = 128
   function sceneGrade() {
     const g = el('g')
@@ -518,7 +495,7 @@ export function startJourney(container, text) {
     let oText, oIndex
     if (portrait) {
       el('text', { x, y: svgH * .3, class: 't-name', 'font-size': fs }, g, 'Miguel')
-      oText = el('text', { x, y: svgH * .3 + fs * .92, class: 't-name', 'font-size': fs }, g, 'Taibo'); oIndex = 4
+      oText = el('text', { x, y: svgH * .3 + fs * 1.04, class: 't-name', 'font-size': fs }, g, 'Taibo'); oIndex = 4
     } else {
       oText = el('text', { x, y: svgH * .46, class: 't-name', 'font-size': fs }, g, 'Miguel Taibo'); oIndex = 11
     }

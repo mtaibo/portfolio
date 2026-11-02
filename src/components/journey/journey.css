@@ -66,9 +66,9 @@
   .ic { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; color: #fff; }
   .ic svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
   .tname { font-size: 17px; font-weight: 600; line-height: 1.2; letter-spacing: -.01em; }
-  .ring { position: absolute; top: 15px; right: 15px; width: 28px; height: 28px; transform: rotate(-90deg); }
-  .ring circle { fill: none; stroke-width: 4; stroke: rgba(116,116,128,.18); }
-  .ring .on { stroke: #007aff; stroke-linecap: round; }
+  .progress-ring { position: absolute; top: 15px; right: 15px; width: 28px; height: 28px; transform: rotate(-90deg); }
+  .progress-ring circle { fill: none; stroke-width: 4; stroke: rgba(116,116,128,.18); }
+  .progress-ring .on { stroke: #007aff; stroke-linecap: round; }
   .tabbar { position: absolute; left: 22px; right: 22px; bottom: 26px; height: 62px; border-radius: 31px; background: rgba(255,255,255,.86); box-shadow: 0 6px 24px rgba(0,0,0,.1), inset 0 0 0 .5px rgba(0,0,0,.05); display: grid; grid-template-columns: repeat(3,1fr); padding: 4px; }
   .tabbar div { display: grid; place-items: center; align-content: center; gap: 2px; font-size: 10.5px; font-weight: 500; color: #1c1c1e; border-radius: 27px; }
   .tabbar svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
@@ -116,4 +116,10 @@
   .tt { white-space: pre; fill: rgba(237,235,230,.82); font-family: var(--mono) !important; font-weight: 500; }
   .tt.dim { fill: var(--ash); }
   .tt.sig { fill: var(--signal); }
+}
+
+@media (max-width: 760px) {
+  .journey .hero ul {
+    margin-top: 18px;
+  }
 }
