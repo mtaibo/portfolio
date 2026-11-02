@@ -1,0 +1,119 @@
+/* The home page: one continuous take through every project. Motion lives in journey.js. */
+.journey {
+  --ink: var(--color-ink); --bone: var(--color-bone); --ash: var(--color-ash); --smoke: var(--color-smoke); --hair: var(--color-hair); --signal: var(--color-signal);
+  --display: var(--font-display); --sans: var(--font-sans); --mono: var(--font-mono);
+
+
+  & #pts, & #stage { position: fixed; inset: 0; width: 100%; height: 100lvh; display: block; }
+  #stage { z-index: 2; pointer-events: none; }
+  #stage .run, #stage .tab { pointer-events: auto; }
+  .cap { z-index: 3; }
+  #pts { pointer-events: none; }
+  .ns { vector-effect: non-scaling-stroke; }
+  svg text { font-family: var(--sans); }
+  .t-name { font-family: var(--display); font-weight: 600; fill: var(--bone); letter-spacing: -.03em; }
+  .st { fill: none; stroke: var(--bone); stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; }
+  .st-dim { stroke: var(--ash); }
+  .st-sig { stroke: var(--signal); }
+  .lab { fill: var(--ash); font-size: 26px; text-anchor: middle; dominant-baseline: central; }
+  .lab.hi { fill: var(--bone); }
+  .lab.sig { fill: var(--signal); }
+  svg text.mono { font-family: var(--mono); font-weight: 500; }
+  .blind { fill: var(--signal); }
+  .run { cursor: pointer; outline: none; }
+  .run:focus-visible .word { fill: var(--signal); }
+  .word { fill: var(--bone); transition: fill .2s ease; }
+  .run:hover .word { fill: var(--signal); }
+  .block rect { fill: #0b0b0a; stroke: rgba(237,235,230,.55); stroke-width: 1; vector-effect: non-scaling-stroke; }
+  .block.own rect { stroke: var(--signal); }
+  .block text { fill: var(--bone); font-size: 28px; text-anchor: middle; dominant-baseline: central; }
+  .block.own text { fill: var(--signal); }
+
+  .cap { position: fixed; left: 48px; bottom: 56px; width: 30vw; min-width: 340px; opacity: 0; visibility: hidden; }
+  .cap.on { visibility: visible; }
+  .cap h2 { font-size: clamp(40px, 5vw, 76px); line-height: 1; }
+  .cap p { color: var(--ash); font-size: 18px; line-height: 1.6; margin: 14px 0 0; max-width: 40ch; }
+  .facts { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; color: rgba(237,235,230,.72); }
+  .more { display: inline-block; margin-top: 20px; font-size: 14px; }
+  .hero { left: 48px; right: 48px; width: auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; }
+  .hero p { margin: 0; font-size: 20px; max-width: 36ch; }
+  .social { display: flex; gap: 20px; font-size: 14px; color: var(--ash); }
+  .end { left: 48px; right: 48px; width: auto; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: end; }
+  .end h2 { font-size: clamp(30px, 3.4vw, 52px); line-height: 1.06; }
+  .end .email { display: block; font-size: clamp(28px, 4.6vw, 72px); line-height: 1; margin-top: 12px; text-decoration: none; }
+  .end .email span { display: inline-block; }
+  .end .row { display: flex; gap: 20px; align-items: center; justify-content: space-between; margin-top: 24px; }
+  .track { height: 1320svh; }
+  /* Grade: built from the app's SwiftUI source, in iOS's own type and colours. */
+  #devices { position: fixed; width: 0; height: 0; left: 0; top: 0; pointer-events: none; perspective: 1500px; display: none; }
+  #devices * { box-sizing: border-box; }
+  .grade-fade { position: fixed; z-index: 1; left: 0; right: 0; bottom: 0; height: 40svh; background: linear-gradient(transparent, #000 30%); pointer-events: none; opacity: 0; display: none; }
+  .phone { position: absolute; width: 390px; height: 844px; left: -195px; top: -422px; font-family: -apple-system, "SF Pro Text", Inter, sans-serif; color: #000; -webkit-font-smoothing: antialiased; }
+  .phone-in { position: absolute; inset: 0; border-radius: 56px; overflow: hidden; background: #f2f2f7; box-shadow: 0 0 0 10px #17171a, 0 0 0 11.5px #3f3f43; }
+  .splash { position: absolute; inset: 0; background: #fff; z-index: 40; }
+  .island { position: absolute; z-index: 45; top: 11px; left: 50%; width: 118px; height: 34px; margin-left: -59px; border-radius: 20px; background: #000; }
+  .status { position: absolute; z-index: 44; top: 18px; left: 34px; right: 30px; display: flex; justify-content: space-between; font: 600 16px -apple-system, "SF Pro Text", Inter, sans-serif; color: #000; }
+  .status svg { width: 62px; height: 14px; margin-top: 2px; }
+  .scr { position: absolute; inset: 0; padding: 62px 16px 0; background: #f2f2f7; overflow: hidden; }
+  .rnd { font-family: ui-rounded, "SF Pro Rounded", -apple-system, Inter, sans-serif; }
+  .topbtns { position: absolute; top: 60px; right: 16px; display: flex; gap: 8px; }
+  .gbtn { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.82); box-shadow: 0 1px 6px rgba(0,0,0,.09), inset 0 0 0 .5px rgba(0,0,0,.05); display: grid; place-items: center; color: #1c1c1e; font-size: 20px; line-height: 1; }
+  .gbtn svg { width: 20px; height: 20px; }
+  .h-year { font-size: 32px; font-weight: 700; letter-spacing: -.01em; margin-top: 2px; }
+  .h-term { font-size: 19px; font-weight: 600; color: rgba(60,60,67,.6); margin-top: 1px; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+  .tile { position: relative; height: 156px; padding: 16px; border-radius: 22px; background: #fff; display: flex; flex-direction: column; justify-content: space-between; }
+  .ic { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; color: #fff; }
+  .ic svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
+  .tname { font-size: 17px; font-weight: 600; line-height: 1.2; letter-spacing: -.01em; }
+  .ring { position: absolute; top: 15px; right: 15px; width: 28px; height: 28px; transform: rotate(-90deg); }
+  .ring circle { fill: none; stroke-width: 4; stroke: rgba(116,116,128,.18); }
+  .ring .on { stroke: #007aff; stroke-linecap: round; }
+  .tabbar { position: absolute; left: 22px; right: 22px; bottom: 26px; height: 62px; border-radius: 31px; background: rgba(255,255,255,.86); box-shadow: 0 6px 24px rgba(0,0,0,.1), inset 0 0 0 .5px rgba(0,0,0,.05); display: grid; grid-template-columns: repeat(3,1fr); padding: 4px; }
+  .tabbar div { display: grid; place-items: center; align-content: center; gap: 2px; font-size: 10.5px; font-weight: 500; color: #1c1c1e; border-radius: 27px; }
+  .tabbar svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .tabbar .sel { color: #007aff; background: rgba(120,120,128,.13); }
+
+
+  @media (max-width: 760px) {
+    .cap, .hero, .end { left: 24px; right: 24px; bottom: 60px; width: auto; min-width: 0; }
+    .hero { display: block; }
+    .hero p { font-size: 17px; }
+    .social { margin-top: 18px; }
+    .cap h2 { font-size: 38px; }
+    .cap p { font-size: 15.5px; line-height: 1.5; margin-top: 10px; }
+    .facts { font-size: 12.5px; margin-top: 12px; }
+    .more { margin-top: 14px; }
+    .end { display: block; }
+    .end h2 { font-size: 28px; }
+    .end .contact { margin-top: 18px; }
+    .end .email { font-size: 9.8vw; line-height: 1.06; }
+    .end .row { margin-top: 14px; }
+    .end .row .social { margin-top: 0; }
+  }
+  @media (max-width: 760px) and (max-height: 700px) {
+    .end p { font-size: 14px; line-height: 1.4; }
+    .end h2 { font-size: 24px; }
+    .end .email { font-size: 8.8vw; }
+  }
+}
+
+.journey .contact-line {
+  margin: 0;
+}
+
+.journey {
+  /* The NixOS desktop's panes and its machine tabs. */
+  .g-box { fill: none; stroke: rgba(237,235,230,.55); stroke-width: 1.25; vector-effect: non-scaling-stroke; }
+  .tab { cursor: pointer; outline: none; }
+  .tab rect { fill: rgba(237,235,230,.04); stroke: rgba(237,235,230,.28); stroke-width: 1; vector-effect: non-scaling-stroke; transition: fill .2s ease; }
+  .tab text { fill: var(--ash); text-anchor: middle; dominant-baseline: central; transition: fill .2s ease; }
+  .tab:hover rect { fill: rgba(237,235,230,.12); }
+  .tab:focus-visible rect { stroke: var(--signal); }
+  .tab.on rect { fill: var(--bone); stroke: var(--bone); }
+  .tab.on text { fill: #000; }
+  .glass { fill: rgba(10,10,9,.84); stroke: rgba(237,235,230,.24); stroke-width: 1; vector-effect: non-scaling-stroke; }
+  .tt { white-space: pre; fill: rgba(237,235,230,.82); font-family: var(--mono) !important; font-weight: 500; }
+  .tt.dim { fill: var(--ash); }
+  .tt.sig { fill: var(--signal); }
+}

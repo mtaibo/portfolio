@@ -1,5 +1,9 @@
 export const content = {
   en: {
+    journey: {
+      label: 'A continuous journey through my projects: from my name to the personal cloud, the floor plan of my home, visual search, my dotfiles and Grade',
+      photo: 'your photo',
+    },
     hero: {
       name: 'Miguel Taibo',
       role: 'Software Engineer',
@@ -56,6 +60,12 @@ export const content = {
           route: '/dotfiles',
           tagline: "A Nix flake that sets up my laptop, my desktop and my server with a single command.",
           facts: ["macOS", "NixOS", "Raspberry Pi OS"],
+        },
+        {
+          id: 'grade',
+          name: 'Grade',
+          tagline: "An app for iPhone, Mac and Apple Watch that knows how each subject grades you and tells you what you need on the final.",
+          href: 'https://grade.migueltaibo.com',
         },
       ],
     },
@@ -216,6 +226,10 @@ export const content = {
   },
 
   es: {
+    journey: {
+      label: 'Un recorrido continuo por mis proyectos: de mi nombre a la nube personal, el plano de mi casa, la búsqueda visual, mis dotfiles y Grade',
+      photo: 'tu foto',
+    },
     hero: {
       name: 'Miguel Taibo',
       role: 'Ingeniero de Software',
@@ -272,6 +286,12 @@ export const content = {
           route: '/dotfiles',
           tagline: "Un flake de Nix que configura mi portátil, mi escritorio y mi servidor con un solo comando.",
           facts: ["macOS", "NixOS", "Raspberry Pi OS"],
+        },
+        {
+          id: 'grade',
+          name: 'Grade',
+          tagline: "App para iPhone, Mac y Apple Watch que sabe cómo te evalúa cada asignatura y te dice qué necesitas en el final.",
+          href: 'https://grade.migueltaibo.com',
         },
       ],
     },

@@ -47,6 +47,12 @@ const router = createRouter({
     if (savedPosition) {
       return savedPosition
     }
+    // Coming back from a project lands on that project, along the home page's one long take.
+    const level = history.state?.journeyLevel
+    const track = document.querySelector('.journey .track')
+    if (to.name === 'home' && level !== undefined && track) {
+      return { top: ((track.offsetHeight - innerHeight) * level) / 7 }
+    }
     return { top: 0 }
   }
 })

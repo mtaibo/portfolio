@@ -23,7 +23,7 @@ This is the source of [migueltaibo.com](https://migueltaibo.com), my personal si
 <td width="33%" valign="top">
 
 ### 🏠 Home
-A hero that draws my stack from a switch chip to a phone, my projects with their live visuals, a short bio and how to reach me. A language toggle switches the whole site between English and Spanish and remembers the choice.
+One continuous take: scrolling dives through the "o" of my name into my personal cloud and my home's floor plan, its walls turn into a point cloud you can search, the points spell `update`, the blocks it installs become my NixOS desktop, and its last check mark opens Grade, before pulling back out to my name. A language toggle switches the whole site between English and Spanish and remembers the choice.
 
 </td>
 <td width="33%" valign="top">
@@ -45,7 +45,7 @@ A page for each project, with its visual full width: [TPCloud](https://migueltai
 
 There's no CMS and no backend. Every text on the site, in both languages, lives in a single file, [`src/content/index.js`](src/content/index.js), and the components only read from it. Changing the bio or the story means editing that file and nothing else; a new project only needs its entry there, a route and a visual.
 
-The project visuals are plain SVG drawn from real data, animated with CSS:
+The home page is one scroll-driven scene, plain SVG and canvas with no animation library, in [`src/components/journey/`](src/components/journey/). The project pages use plain SVG visuals drawn from real data, animated with CSS:
 
 | Project | Visual |
 |---|---|
@@ -64,7 +64,7 @@ src/
 ├── router/               # Home, /story and one route per project
 ├── views/                # Home, StoryView, ProjectDetail
 └── components/
-    ├── visuals/          # HeroLine, CloudVisual, HomeVisual, SearchVisual, TerminalVisual
+    ├── visuals/          # CloudVisual, HomeVisual, SearchVisual, TerminalVisual
     └── …                 # Hero, Projects, About, Contact, LanguageToggle, SocialLinks
 ```
 

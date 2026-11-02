@@ -17,9 +17,12 @@ html {
   background-color: var(--color-ink);
   color: var(--color-bone);
   font-family: var(--font-sans);
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+html, body {
+  overflow-x: clip;
 }
 
 body {

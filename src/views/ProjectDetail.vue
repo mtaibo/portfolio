@@ -81,15 +81,17 @@ const props = defineProps({ projectId: String })
 const handleBack = (e) => {
   if (e.button !== 0 || e.metaKey || e.ctrlKey) return
   e.preventDefault()
-  router.push({ path: '/', state: { scrollTo: 'projects' } })
+  router.push({ path: '/', state: { journeyLevel: { tpcloud: 1, tphome: 2, hackudc26: 3, dotfiles: 4 }[props.projectId] } })
 }
 
 const project = computed(() => t.value.projectDetail.projects[props.projectId])
 const items = computed(() => t.value.projects.items)
 const summary = computed(() => items.value.find((p) => p.id === props.projectId))
 const next = computed(() => {
-  const i = items.value.findIndex((p) => p.id === props.projectId)
-  return items.value[(i + 1) % items.value.length]
+  // Grade lives on its own site, so the loop only goes through the pages here.
+  const pages = items.value.filter((p) => p.route)
+  const i = pages.findIndex((p) => p.id === props.projectId)
+  return pages[(i + 1) % pages.length]
 })
 </script>
 

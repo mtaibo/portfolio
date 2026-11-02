@@ -8,6 +8,18 @@ Deja las claves como están. Cambia solo el texto que va debajo.
 
 ---
 
+## Journey
+
+_Home, screen readers and the search scene_
+
+**`journey.label`**
+
+Un recorrido continuo por mis proyectos: de mi nombre a la nube personal, el plano de mi casa, la búsqueda visual, mis dotfiles y Grade
+
+**`journey.photo`**
+
+tu foto
+
 ## Hero
 
 _Home, first screen_
@@ -20,22 +32,9 @@ Miguel Taibo
 
 Estudio Ingeniería Informática en la UDC y construyo mi propia infraestructura: firmware, servidores y apps nativas.
 
-**`hero.stack`**
-
-- Firmware del interruptor
-- Servidor en casa
-- Nube personal
-- App nativa
-
-_The four labels under the diagram, left to right (top to bottom on phones)._
-
 ## Projects
 
 _Home, project list_
-
-**`projects.label`**
-
-Proyectos
 
 **`projects.more`**
 
@@ -105,6 +104,16 @@ Un flake de Nix que configura mi portátil, mi escritorio y mi servidor con un s
 - macOS
 - NixOS
 - Raspberry Pi OS
+
+### Grade
+
+**`projects.items[4].name`**
+
+Grade
+
+**`projects.items[4].tagline`**
+
+App para iPhone, Mac y Apple Watch que sabe cómo te evalúa cada asignatura y te dice qué necesitas en el final.
 
 ## About
 
@@ -472,6 +481,10 @@ _Not in src/content/index.js; written directly in the components and the same in
 - GitHub
 - LinkedIn
 - Email
+
+**`src/components/journey/journey.js (home page scenes)`**
+
+Diagram labels, the modules of each machine, the real output of `update`, and Grade's iPhone screen, always in Spanish like the app.
 
 **`src/components/visuals/CloudVisual.vue (TPCloud diagram)`**
 
