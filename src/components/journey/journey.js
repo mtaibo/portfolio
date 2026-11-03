@@ -554,8 +554,8 @@ export function startJourney(container, text) {
     const range = track.offsetHeight - innerHeight
     const raw = clamp01(scrollY / range) * LAST
     const k0 = Math.min(LAST - 1, Math.floor(raw))
-    // Each level holds still for a while, then the movement to the next one plays.
-    const target = k0 + (raw >= LAST ? 1 : smooth(.34, 1, raw - k0))
+    // Each level holds still for a while, then the movement to the next one plays. The name doesn't wait: the first scroll already moves.
+    const target = k0 + (raw >= LAST ? 1 : smooth(k0 ? .34 : 0, 1, raw - k0))
     if (s === null) s = target
     s += (target - s) * Math.min(1, dt * (reduced ? 40 : 7))
     if (Math.abs(target - s) < .0004) s = target
