@@ -48,7 +48,7 @@ TPCloud
 
 **`projects.items[0].tagline`**
 
-A personal cloud on a Raspberry Pi 5. Single sign-on, files, photo backup, a server dashboard and a native app.
+A personal cloud on a Raspberry Pi 5. Single sign-on, files, photo backup and a native app.
 
 **`projects.items[0].facts`**
 
@@ -197,11 +197,11 @@ TPCloud
 
 **`projectDetail.projects.tpcloud.description`**
 
-A self-hosted personal cloud on a Raspberry Pi 5. Single sign-on for every service on migueltaibo.com, file storage, photo backup, an admin panel and a native app for iPhone and Mac.
+A self-hosted personal cloud on a Raspberry Pi 5. Single sign-on for every service on migueltaibo.com, file storage, photo backup and a native app for iPhone and Mac.
 
 **`projectDetail.projects.tpcloud.overview`**
 
-Every service on my server had its own login, its own port and its own way in from outside. TPCloud brings them together. A gateway, reachable only through a Cloudflare Tunnel, checks every request against an auth service shared by all subdomains. Each service is an independent module that plugs into that core. The system replaces Google Drive, iCloud Photos and a handful of standalone apps.
+Every service on my server had its own login, its own port and its own way in from outside. TPCloud brings them together. A gateway, reachable only through a Cloudflare Tunnel, checks every request against an auth service shared by every service, each on its own path. Each service is an independent module that plugs into that core. The system replaces Google Drive, iCloud Photos and a handful of standalone apps.
 
 **`projectDetail.projects.tpcloud.modules[0].name`**
 
@@ -209,7 +209,7 @@ Core: gateway & auth
 
 **`projectDetail.projects.tpcloud.modules[0].description`**
 
-Caddy routes each subdomain and checks every request against the auth service. Passkeys on the web, password and TOTP in the native app. Sessions can be reviewed and revoked from any device.
+Caddy routes each path to its service and checks every request against the auth service. Passkeys on the web, password and TOTP in the native app. Sessions can be reviewed and revoked from any device.
 
 **`projectDetail.projects.tpcloud.modules[1].name`**
 
@@ -227,30 +227,22 @@ TPApp
 
 A native SwiftUI app for iPhone and Mac that replaces the web interfaces: files, a gallery with background photo backup, home control on the live floor plan, and account settings.
 
-**`projectDetail.projects.tpcloud.modules[3].name`**
-
-TPAdmin
-
-**`projectDetail.projects.tpcloud.modules[3].description`**
-
-A server admin panel built for the phone. System temperature and health, containers and their logs, one-tap redeploys and Claude Code sessions on the Pi.
-
 **`projectDetail.projects.tpcloud.features`**
 
-- Single sign-on across every subdomain, with passkeys or password and TOTP
+- Single sign-on across every service, with passkeys or password and TOTP
 - No open ports: access only through a Cloudflare Tunnel
 - Resumable chunked uploads and password-protected share links
 - Background iPhone photo backup, deduplicated and organised by date
 - Native iOS and macOS app with Liquid Glass
-- Server dashboard with health, logs and redeploys
+- One repository for the services, the web apps and the native app, set up by one installer
 
 **`projectDetail.projects.tpcloud.architecture`**
 
-Everything runs on a Raspberry Pi 5 with Docker Compose. A Caddy gateway behind cloudflared routes each subdomain to its container on a shared Docker network. Before letting a request through, it asks the FastAPI auth service whether the session cookie is valid. TPStore and TPHome live in their own repositories and join that network as modules. TPAdmin runs on the host as a systemd service. TPApp talks to every API directly.
+Everything runs on a Raspberry Pi 5 with Docker Compose. A Caddy gateway behind cloudflared routes each path to its container on a shared Docker network. Before letting a request through, it asks the FastAPI auth service whether the session cookie is valid. The gateway, auth, TPStore, every web app and TPApp live in one repository; TPHome keeps its own and joins that network as a module. TPApp talks to every API directly.
 
 **`projectDetail.projects.tpcloud.challenges`**
 
-The first challenge was designing an auth flow that works in both the browser and a native app. The second was keeping the modules in separate repositories while sharing a single login. The third was making photo backup survive iOS suspending the app. With everything exposed to the internet, security shaped every design decision.
+The first challenge was designing an auth flow that works in both the browser and a native app. The second was keeping the modules independent while sharing a single login. The third was making photo backup survive iOS suspending the app. With everything exposed to the internet, security shaped every design decision.
 
 ### TPHome (/tphome)
 
@@ -470,7 +462,7 @@ TPCloud
 
 **`story.entries[7].body`**
 
-In the summer of 2026 I started TPCloud. It began as a single login for my services and now includes file storage, iPhone photo backup, a server dashboard and a native SwiftUI app. It's still a work in progress.
+In the summer of 2026 I started TPCloud. It began as a single login for my services and now includes file storage, iPhone photo backup and a native SwiftUI app, all in one repository. It's still a work in progress.
 
 ## Fixed text
 

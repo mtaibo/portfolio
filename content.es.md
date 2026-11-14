@@ -48,7 +48,7 @@ TPCloud
 
 **`projects.items[0].tagline`**
 
-Nube personal en una Raspberry Pi 5. Login único, archivos, copia de fotos, panel del servidor y app nativa.
+Nube personal en una Raspberry Pi 5. Login único, archivos, copia de fotos y app nativa.
 
 **`projects.items[0].facts`**
 
@@ -197,11 +197,11 @@ TPCloud
 
 **`projectDetail.projects.tpcloud.description`**
 
-Nube personal autoalojada en una Raspberry Pi 5. Un único inicio de sesión para todos los servicios de migueltaibo.com, almacenamiento de archivos, copia de fotos, panel de administración y app nativa para iPhone y Mac.
+Nube personal autoalojada en una Raspberry Pi 5. Un único inicio de sesión para todos los servicios de migueltaibo.com, almacenamiento de archivos, copia de fotos y app nativa para iPhone y Mac.
 
 **`projectDetail.projects.tpcloud.overview`**
 
-Cada servicio de mi servidor tenía su propio login, su propio puerto y su propia forma de acceso externo. TPCloud los unifica. Un gateway, accesible solo a través de un túnel de Cloudflare, valida cada petición contra un servicio de autenticación común a todos los subdominios. Cada servicio es un módulo independiente que se conecta a ese núcleo. El sistema sustituye a Google Drive, iCloud Fotos y varias apps sueltas.
+Cada servicio de mi servidor tenía su propio login, su propio puerto y su propia forma de acceso externo. TPCloud los unifica. Un gateway, accesible solo a través de un túnel de Cloudflare, valida cada petición contra un servicio de autenticación común a todos los servicios, cada uno en su propia ruta. Cada servicio es un módulo independiente que se conecta a ese núcleo. El sistema sustituye a Google Drive, iCloud Fotos y varias apps sueltas.
 
 **`projectDetail.projects.tpcloud.modules[0].name`**
 
@@ -209,7 +209,7 @@ Núcleo: gateway y autenticación
 
 **`projectDetail.projects.tpcloud.modules[0].description`**
 
-Caddy enruta cada subdominio y valida cada petición contra el servicio de autenticación. Passkeys en la web, contraseña y TOTP en la app nativa. Las sesiones se pueden consultar y revocar desde cualquier dispositivo.
+Caddy enruta cada ruta a su servicio y valida cada petición contra el servicio de autenticación. Passkeys en la web, contraseña y TOTP en la app nativa. Las sesiones se pueden consultar y revocar desde cualquier dispositivo.
 
 **`projectDetail.projects.tpcloud.modules[1].name`**
 
@@ -227,30 +227,22 @@ TPApp
 
 App nativa en SwiftUI para iPhone y Mac que sustituye a las interfaces web: archivos, galería con copia de fotos en segundo plano, control de la casa sobre el plano en tiempo real y ajustes de la cuenta.
 
-**`projectDetail.projects.tpcloud.modules[3].name`**
-
-TPAdmin
-
-**`projectDetail.projects.tpcloud.modules[3].description`**
-
-Panel de administración del servidor, pensado para el móvil. Temperatura y estado del sistema, contenedores y sus logs, redespliegues con un toque y sesiones de Claude Code en la Pi.
-
 **`projectDetail.projects.tpcloud.features`**
 
-- Inicio de sesión único en todos los subdominios, con passkeys o contraseña y TOTP
+- Inicio de sesión único en todos los servicios, con passkeys o contraseña y TOTP
 - Ningún puerto abierto: acceso exclusivo por túnel de Cloudflare
 - Subidas por partes reanudables y enlaces protegidos con contraseña
 - Copia de fotos del iPhone en segundo plano, sin duplicados y organizada por fecha
 - App nativa para iOS y macOS con Liquid Glass
-- Panel del servidor con estado, logs y redespliegues
+- Un solo repositorio para los servicios, las webs y la app nativa, instalado con un solo instalador
 
 **`projectDetail.projects.tpcloud.architecture`**
 
-Todo corre en una Raspberry Pi 5 con Docker Compose. Un gateway Caddy detrás de cloudflared enruta cada subdominio a su contenedor dentro de una red Docker compartida. Antes de dejar pasar una petición, consulta al servicio de autenticación en FastAPI si la cookie de sesión es válida. TPStore y TPHome viven en repositorios propios y se unen a esa red como módulos. TPAdmin corre en el host como servicio de systemd. TPApp se comunica directamente con todas las APIs.
+Todo corre en una Raspberry Pi 5 con Docker Compose. Un gateway Caddy detrás de cloudflared enruta cada ruta a su contenedor dentro de una red Docker compartida. Antes de dejar pasar una petición, consulta al servicio de autenticación en FastAPI si la cookie de sesión es válida. El gateway, la autenticación, TPStore, todas las webs y TPApp viven en un solo repositorio; TPHome mantiene el suyo y se une a esa red como módulo. TPApp se comunica directamente con todas las APIs.
 
 **`projectDetail.projects.tpcloud.challenges`**
 
-El primer reto fue diseñar un flujo de autenticación válido tanto para el navegador como para una app nativa. El segundo, mantener los módulos en repositorios independientes compartiendo un solo login. El tercero, que la copia de fotos sobreviva a la suspensión de la app por parte de iOS. Al estar expuesto a internet, la seguridad condicionó cada decisión de diseño.
+El primer reto fue diseñar un flujo de autenticación válido tanto para el navegador como para una app nativa. El segundo, mantener los módulos independientes compartiendo un solo login. El tercero, que la copia de fotos sobreviva a la suspensión de la app por parte de iOS. Al estar expuesto a internet, la seguridad condicionó cada decisión de diseño.
 
 ### TPHome (/tphome)
 
@@ -470,7 +462,7 @@ TPCloud
 
 **`story.entries[7].body`**
 
-En el verano de 2026 empecé TPCloud. Nació como un login único para mis servicios y hoy incluye almacenamiento de archivos, copia de fotos del iPhone, un panel del servidor y una app nativa en SwiftUI. Sigue en desarrollo.
+En el verano de 2026 empecé TPCloud. Nació como un login único para mis servicios y hoy incluye almacenamiento de archivos, copia de fotos del iPhone y una app nativa en SwiftUI, todo en un solo repositorio. Sigue en desarrollo.
 
 ## Fixed text
 
