@@ -119,7 +119,7 @@ function home() {
 }
 
 function cloud() {
-  const mods = [['login', -345, 140], ['accounts', -115, 140], ['cloud', 115, 140], ['store', 345, 140], ['share', -230, 260], ['tphome', 0, 260], ['admin', 230, 260]]
+  const mods = [['login', -345, 140], ['accounts', -115, 140], ['cloud', 115, 140], ['store', 345, 140], ['share', -230, 260], ['tphome', 0, 260], ['photos', 230, 260]]
   const blocks = [b(-230, -405, 180, 110, 12, .06), b(230, -405, 74, 120, 16, .06), b(0, -260, 88, 88, 44, .05), b(0, -40, 190, 100, 14, .14), b(325, -40, 150, 80, 12, .06)]
   mods.forEach(([m, x, y]) => blocks.push(b(x, y, 200, 76, 12, m === 'tphome' ? .2 : .06, { sig: m === 'tphome' })))
   return {

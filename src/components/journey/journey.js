@@ -26,7 +26,7 @@ export function startJourney(container, text) {
   // ---- level 1: TPCloud, 1000 x 1000 around the origin ----
   function sceneCloud() {
     const g = el('g')
-    const mods = [['login', -345, 140], ['accounts', -115, 140], ['cloud', 115, 140], ['store', 345, 140], ['share', -230, 260], ['tphome', 0, 260], ['admin', 230, 260]]
+    const mods = [['login', -345, 140], ['accounts', -115, 140], ['cloud', 115, 140], ['store', 345, 140], ['share', -230, 260], ['tphome', 0, 260], ['photos', 230, 260]]
     line(g, 'M-230 -345 V-300 Q-230 -260 -190 -260 H-80 M230 -345 V-300 Q230 -260 190 -260 H80')
     el('path', { d: 'M0 -205 V-90', class: 'st st-dim ns', 'stroke-dasharray': '3 7' }, g)
     line(g, 'M95 -40 H250')

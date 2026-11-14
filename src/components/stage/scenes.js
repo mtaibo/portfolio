@@ -144,7 +144,7 @@ function tphome(root, lang) {
 function tpcloud(root, lang) {
   const es = lang === 'es'
   const whole = el('g', {}, root), trip = el('g', {}, root), ways = el('g', {}, root)
-  const mods = [['login', -345, 140], ['accounts', -115, 140], ['cloud', 115, 140], ['store', 345, 140], ['share', -230, 260], ['tphome', 0, 260], ['admin', 230, 260]]
+  const mods = [['login', -345, 140], ['accounts', -115, 140], ['cloud', 115, 140], ['store', 345, 140], ['share', -230, 260], ['tphome', 0, 260], ['photos', 230, 260]]
   const draw = (g) => {
     line(g, 'M-230 -345 V-300 Q-230 -260 -190 -260 H-80 M230 -345 V-300 Q230 -260 190 -260 H80')
     el('path', { d: 'M0 -205 V-90', class: 'st st-dim ns', 'stroke-dasharray': '3 7' }, g)
@@ -178,7 +178,7 @@ function tpcloud(root, lang) {
   const wA = el('circle', { r: 11, class: 'pulse' }, ways), wB = el('circle', { r: 11, class: 'pulse' }, ways)
   const pathA = el('path', { d: 'M-280 -165 V-60 Q-280 -10 -230 -10 H-90', fill: 'none' }, ways), pathB = el('path', { d: 'M280 -165 V-60 Q280 -10 230 -10 H90', fill: 'none' }, ways)
   line(ways, 'M0 45 V150')
-  const out = ['store', 'tphome', 'admin'].map((m, i) => { const x = -340 + i * 340; box(ways, x, 240, 280, 90, 'st st-dim'); label(ways, x, 240, m); return x })
+  const out = ['store', 'photos', 'tphome'].map((m, i) => { const x = -340 + i * 340; box(ways, x, 240, 280, 90, 'st st-dim'); label(ways, x, 240, m); return x })
   line(ways, `M${out[0]} 195 V150 H${out[2]} V195 M0 150 V195`)
   const lenA = pathA.getTotalLength(), lenB = pathB.getTotalLength()
 
