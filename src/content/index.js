@@ -29,7 +29,7 @@ export const content = {
           id: 'tpcloud',
           name: 'TPCloud',
           description: "A self-hosted personal cloud on a Raspberry Pi 5. Single sign-on for every service on migueltaibo.com, file storage, photo backup and a native app for iPhone and Mac.",
-          tech: ['FastAPI', 'Vue', 'SwiftUI', 'Docker', 'Caddy', 'Cloudflare'],
+          tech: ['FastAPI', 'Vue', 'SwiftUI', 'Rust', 'Caddy', 'Cloudflare'],
           route: '/tpcloud',
           tagline: "A personal cloud on a Raspberry Pi 5. Single sign-on, files, photo backup and a native app.",
           facts: ["Raspberry Pi 5", "Passkeys and 2FA", "iOS and macOS app", "No open ports"],
@@ -136,7 +136,7 @@ export const content = {
         tpcloud: {
           name: 'TPCloud',
           description: "A self-hosted personal cloud on a Raspberry Pi 5. Single sign-on for every service on migueltaibo.com, file storage, photo backup and a native app for iPhone and Mac.",
-          tech: ['FastAPI', 'Vue', 'SwiftUI', 'Docker', 'Caddy', 'Cloudflare'],
+          tech: ['FastAPI', 'Vue', 'SwiftUI', 'Rust', 'Caddy', 'Cloudflare'],
           github: 'https://github.com/mtaibo/tpcloud',
           overview: "Every service on my server had its own login, its own port and its own way in from outside. TPCloud brings them together. A gateway, reachable only through a Cloudflare Tunnel, checks every request against an auth service shared by every service, each on its own path. Each service is an independent module that plugs into that core. The system replaces Google Drive, iCloud Photos and a handful of standalone apps.",
           modules: [
@@ -162,9 +162,9 @@ export const content = {
             "Resumable chunked uploads and password-protected share links",
             "Background iPhone photo backup, deduplicated and organised by date",
             "Native iOS and macOS app with Liquid Glass",
-            "One repository for the services, the web apps and the native app, set up by one installer",
+            "One repository for the services, the web apps and the native app, installed on a server from a single file",
           ],
-          architecture: "Everything runs on a Raspberry Pi 5 with Docker Compose. A Caddy gateway behind cloudflared routes each path to its container on a shared Docker network. Before letting a request through, it asks the FastAPI auth service whether the session cookie is valid. The gateway, auth, TPStore, every web app and TPApp live in one repository; TPHome keeps its own and joins that network as a module. TPApp talks to every API directly.",
+          architecture: "Everything runs on a Raspberry Pi 5 from one file: a static binary that carries every service and runs them under systemd, with no Docker. A Caddy gateway behind cloudflared routes each path to its service and asks the FastAPI auth service whether the session cookie is valid. The gateway, auth, TPStore, every web app and TPApp live in one repository; TPHome keeps its own, and its API ships inside the same file.",
           challenges: "The first challenge was designing an auth flow that works in both the browser and a native app. The second was keeping the modules independent while sharing a single login. The third was making photo backup survive iOS suspending the app. With everything exposed to the internet, security shaped every design decision.",
         },
         tphome: {
@@ -251,7 +251,7 @@ export const content = {
           id: 'tpcloud',
           name: 'TPCloud',
           description: "Nube personal autoalojada en una Raspberry Pi 5. Un único inicio de sesión para todos los servicios de migueltaibo.com, almacenamiento de archivos, copia de fotos y app nativa para iPhone y Mac.",
-          tech: ['FastAPI', 'Vue', 'SwiftUI', 'Docker', 'Caddy', 'Cloudflare'],
+          tech: ['FastAPI', 'Vue', 'SwiftUI', 'Rust', 'Caddy', 'Cloudflare'],
           route: '/tpcloud',
           tagline: "Nube personal en una Raspberry Pi 5. Login único, archivos, copia de fotos y app nativa.",
           facts: ["Raspberry Pi 5", "Passkeys y 2FA", "App para iOS y macOS", "Sin puertos abiertos"],
@@ -358,7 +358,7 @@ export const content = {
         tpcloud: {
           name: 'TPCloud',
           description: "Nube personal autoalojada en una Raspberry Pi 5. Un único inicio de sesión para todos los servicios de migueltaibo.com, almacenamiento de archivos, copia de fotos y app nativa para iPhone y Mac.",
-          tech: ['FastAPI', 'Vue', 'SwiftUI', 'Docker', 'Caddy', 'Cloudflare'],
+          tech: ['FastAPI', 'Vue', 'SwiftUI', 'Rust', 'Caddy', 'Cloudflare'],
           github: 'https://github.com/mtaibo/tpcloud',
           overview: "Cada servicio de mi servidor tenía su propio login, su propio puerto y su propia forma de acceso externo. TPCloud los unifica. Un gateway, accesible solo a través de un túnel de Cloudflare, valida cada petición contra un servicio de autenticación común a todos los servicios, cada uno en su propia ruta. Cada servicio es un módulo independiente que se conecta a ese núcleo. El sistema sustituye a Google Drive, iCloud Fotos y varias apps sueltas.",
           modules: [
@@ -384,9 +384,9 @@ export const content = {
             "Subidas por partes reanudables y enlaces protegidos con contraseña",
             "Copia de fotos del iPhone en segundo plano, sin duplicados y organizada por fecha",
             "App nativa para iOS y macOS con Liquid Glass",
-            "Un solo repositorio para los servicios, las webs y la app nativa, instalado con un solo instalador",
+            "Un solo repositorio para los servicios, las webs y la app nativa, instalado en un servidor desde un solo archivo",
           ],
-          architecture: "Todo corre en una Raspberry Pi 5 con Docker Compose. Un gateway Caddy detrás de cloudflared enruta cada ruta a su contenedor dentro de una red Docker compartida. Antes de dejar pasar una petición, consulta al servicio de autenticación en FastAPI si la cookie de sesión es válida. El gateway, la autenticación, TPStore, todas las webs y TPApp viven en un solo repositorio; TPHome mantiene el suyo y se une a esa red como módulo. TPApp se comunica directamente con todas las APIs.",
+          architecture: "Todo corre en una Raspberry Pi 5 desde un solo archivo: un binario estático que lleva todos los servicios y los ejecuta bajo systemd, sin Docker. Un gateway Caddy detrás de cloudflared enruta cada ruta a su servicio y consulta al servicio de autenticación en FastAPI si la cookie de sesión es válida. El gateway, la autenticación, TPStore, las webs y TPApp viven en un solo repositorio; TPHome mantiene el suyo y su API viaja en el mismo archivo.",
           challenges: "El primer reto fue diseñar un flujo de autenticación válido tanto para el navegador como para una app nativa. El segundo, mantener los módulos independientes compartiendo un solo login. El tercero, que la copia de fotos sobreviva a la suspensión de la app por parte de iOS. Al estar expuesto a internet, la seguridad condicionó cada decisión de diseño.",
         },
         tphome: {
